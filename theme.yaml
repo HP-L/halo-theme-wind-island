@@ -1,0 +1,21 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: wind-island
+spec:
+  displayName: 风屿
+  author:
+    name: HP-L
+    website: https://gitee.com/HP-L
+  description: 一款克制、沉静、以 Halo 原生内容与导航体系为中心的主题，支持夜屿、暮屿、晓屿与随境四种"屿色"配色，默认保持当前夜屿品牌
+  logo: /themes/wind-island/assets/images/wind-island-logo.svg
+  homepage: https://gitee.com/HP-L/halo-theme-wind-island
+  repo: https://gitee.com/HP-L/halo-theme-wind-island.git
+  issues: https://gitee.com/HP-L/halo-theme-wind-island/issues
+  settingName: "wind-island-setting"
+  configMapName: "wind-island-config"
+  version: 0.0.1
+  requires: ">=2.22.2"
+  license:
+    - name: MIT
+      url: https://gitee.com/HP-L/halo-theme-wind-island/blob/main/LICENSE

@@ -1,0 +1,284 @@
+<include src="layout.html">
+  <template name="head">
+    <title th:text="${site.title}">风屿</title>
+  </template>
+
+  <section class="hero container" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">
+        <span th:text="#{page.index.welcome}">欢迎来到</span>
+        <strong th:text="${site.title}">风屿</strong>
+        <span class="hero-tagline" data-solar-term><span class="solar-term--shuangjiang">春分</span>将至</span>
+      </h1>
+      <p th:text="${site.subtitle ?: site.seo.description}">
+        在风屿之间，记录技术、创作与日常的风声。
+      </p>
+      <div class="hero-actions">
+        <a class="button button--primary" th:href="@{${site.routes.archivesUri}}" th:text="#{common.readPost}">阅读文章</a>
+        <a class="button button--secondary" th:href="@{${site.routes.categoriesUri}}" th:text="#{page.index.browseCategories}">浏览分类</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-orbit">
+        <img
+          src="./assets/images/wind-island-hero-1.png"
+          th:src="${not #strings.isEmpty(theme.config?.home?.hero_image) ? theme.config.home.hero_image : #theme.assets('/images/wind-island-hero-1.png')}"
+          th:alt="${#messages.msg('page.index.heroImageAlt', site.title)}"
+        />
+      </div>
+    </div>
+  </section>
+
+  <th:block
+    th:with="
+      coverStripSource = ${theme.config?.home?.cover_strip_source ?: 'pinned'},
+      coverStripCategoryName = ${theme.config?.home?.cover_strip_category},
+      coverStripTagName = ${theme.config?.home?.cover_strip_tag}
+    "
+  >
+    <th:block th:if="${coverStripSource == 'pinned'}" th:with="coverStripPosts = ${posts.items.?[spec.pinned]}">
+      <section class="cover-strip" th:aria-label="#{page.index.pinnedPosts}" th:if="${not #lists.isEmpty(coverStripPosts)}">
+        <div class="cover-strip__track">
+          <div class="cover-strip__set">
+            <a
+              class="cover-tile"
+              th:each="post : ${coverStripPosts}"
+              th:href="@{${post.status.permalink}}"
+            >
+              <img
+                th:src="${(not #strings.isEmpty(post.spec.cover) and post.spec.cover != '0') ? post.spec.cover : #theme.assets('/images/wind-island-hero-1.png')}"
+                th:alt="${post.spec.title}"
+                loading="lazy"
+              />
+              <div class="cover-tile__info">
+                <span class="cover-tile__title" th:text="${post.spec.title}">文章标题</span>
+                <span class="cover-tile__author" th:text="${post.owner?.displayName ?: post.owner?.name ?: ''}">作者</span>
+              </div>
+            </a>
+          </div>
+          <div class="cover-strip__set" aria-hidden="true">
+            <span class="cover-tile" th:each="post : ${coverStripPosts}">
+              <img
+                th:src="${(not #strings.isEmpty(post.spec.cover) and post.spec.cover != '0') ? post.spec.cover : #theme.assets('/images/wind-island-hero-1.png')}"
+                alt=""
+                loading="lazy"
+              />
+              <div class="cover-tile__info">
+                <span class="cover-tile__title" th:text="${post.spec.title}">文章标题</span>
+                <span class="cover-tile__author" th:text="${post.owner?.displayName ?: post.owner?.name ?: ''}">作者</span>
+              </div>
+            </span>
+          </div>
+        </div>
+      </section>
+    </th:block>
+
+    <th:block th:if="${coverStripSource == 'category' and not #strings.isEmpty(coverStripCategoryName)}" th:with="coverCategory = ${categoryFinder.getByName(coverStripCategoryName)}">
+      <th:block th:if="${coverCategory != null}" th:with="coverStripPosts = ${postFinder.list({page: 1, size: 20, categoryName: coverStripCategoryName}).items}">
+        <section class="cover-strip" th:aria-label="#{page.index.categoryPosts}" th:if="${not #lists.isEmpty(coverStripPosts)}">
+          <div class="cover-strip__track">
+            <div class="cover-strip__set">
+              <a
+                class="cover-tile"
+                th:each="post : ${coverStripPosts}"
+                th:href="@{${post.status.permalink}}"
+              >
+                <img
+                  th:src="${(not #strings.isEmpty(post.spec.cover) and post.spec.cover != '0') ? post.spec.cover : #theme.assets('/images/wind-island-hero-1.png')}"
+                  th:alt="${post.spec.title}"
+                  loading="lazy"
+                />
+                <div class="cover-tile__info">
+                  <span class="cover-tile__title" th:text="${post.spec.title}">文章标题</span>
+                  <span class="cover-tile__author" th:text="${post.owner?.displayName ?: post.owner?.name ?: ''}">作者</span>
+                </div>
+              </a>
+            </div>
+            <div class="cover-strip__set" aria-hidden="true">
+              <span class="cover-tile" th:each="post : ${coverStripPosts}">
+                <img
+                  th:src="${(not #strings.isEmpty(post.spec.cover) and post.spec.cover != '0') ? post.spec.cover : #theme.assets('/images/wind-island-hero-1.png')}"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="cover-tile__info">
+                  <span class="cover-tile__title" th:text="${post.spec.title}">文章标题</span>
+                  <span class="cover-tile__author" th:text="${post.owner?.displayName ?: post.owner?.name ?: ''}">作者</span>
+                </div>
+              </span>
+            </div>
+          </div>
+        </section>
+      </th:block>
+    </th:block>
+
+    <th:block th:if="${coverStripSource == 'tag' and not #strings.isEmpty(coverStripTagName)}" th:with="coverTag = ${tagFinder.getByName(coverStripTagName)}">
+      <th:block th:if="${coverTag != null}" th:with="coverStripPosts = ${postFinder.list({page: 1, size: 20, tagName: coverStripTagName}).items}">
+        <section class="cover-strip" th:aria-label="#{page.index.tagPosts}" th:if="${not #lists.isEmpty(coverStripPosts)}">
+          <div class="cover-strip__track">
+            <div class="cover-strip__set">
+              <a
+                class="cover-tile"
+                th:each="post : ${coverStripPosts}"
+                th:href="@{${post.status.permalink}}"
+              >
+                <img
+                  th:src="${(not #strings.isEmpty(post.spec.cover) and post.spec.cover != '0') ? post.spec.cover : #theme.assets('/images/wind-island-hero-1.png')}"
+                  th:alt="${post.spec.title}"
+                  loading="lazy"
+                />
+                <div class="cover-tile__info">
+                  <span class="cover-tile__title" th:text="${post.spec.title}">文章标题</span>
+                  <span class="cover-tile__author" th:text="${post.owner?.displayName ?: post.owner?.name ?: ''}">作者</span>
+                </div>
+              </a>
+            </div>
+            <div class="cover-strip__set" aria-hidden="true">
+              <span class="cover-tile" th:each="post : ${coverStripPosts}">
+                <img
+                  th:src="${(not #strings.isEmpty(post.spec.cover) and post.spec.cover != '0') ? post.spec.cover : #theme.assets('/images/wind-island-hero-1.png')}"
+                  alt=""
+                  loading="lazy"
+                />
+                <div class="cover-tile__info">
+                  <span class="cover-tile__title" th:text="${post.spec.title}">文章标题</span>
+                  <span class="cover-tile__author" th:text="${post.owner?.displayName ?: post.owner?.name ?: ''}">作者</span>
+                </div>
+              </span>
+            </div>
+          </div>
+        </section>
+      </th:block>
+    </th:block>
+  </th:block>
+
+  <section
+    class="story-grid container section"
+    aria-labelledby="topics-title"
+    th:with="
+      topicCategoryNames = ${theme.config?.home?.topic_categories},
+      hasTopicConfig = ${topicCategoryNames != null and topicCategoryNames.size() > 0},
+      topicPage = ${hasTopicConfig ? null : categoryFinder.list(1, 12)}
+    "
+  >
+    <aside class="panel topic-panel" data-reveal>
+      <p class="eyebrow" th:text="#{page.index.collectionsEyebrow}">COLLECTIONS</p>
+      <h2 id="topics-title" th:text="#{page.index.collectionsTitle}">内容专题</h2>
+      <ul class="topic-list" th:if="${hasTopicConfig}">
+        <th:block th:each="catName, stat : ${topicCategoryNames}">
+          <th:block th:with="cat = ${categoryFinder.getByName(catName)}">
+            <li th:if="${cat != null}">
+              <a th:href="@{${cat.status.permalink}}">
+                <span class="topic-list__mark" th:text="|${stat.count < 10 ? '0' : ''}${stat.count}|">01</span>
+                <span class="topic-list__copy">
+                  <strong th:text="${cat.spec.displayName}">分类</strong>
+                  <small th:text="${#messages.msg('common.postsCount', cat.postCount)}">0 篇文章</small>
+                </span>
+                <span class="topic-list__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </th:block>
+        </th:block>
+      </ul>
+      <ul class="topic-list" th:if="${!hasTopicConfig && topicPage != null && topicPage.items != null && topicPage.items.size() > 0}">
+        <li th:each="category, stat : ${topicPage.items}">
+          <a th:href="@{${category.status.permalink}}">
+            <span class="topic-list__mark" th:text="|${stat.count < 10 ? '0' : ''}${stat.count}|">01</span>
+            <span class="topic-list__copy">
+              <strong th:text="${category.spec.displayName}">分类</strong>
+              <small th:text="${#messages.msg('common.postsCount', category.postCount)}">0 篇文章</small>
+            </span>
+            <span class="topic-list__arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+      <p th:if="${!hasTopicConfig && (topicPage == null || topicPage.items == null || topicPage.items.size() == 0)}" th:text="#{page.index.emptyCategories}">分类会在这里形成你的内容地图。</p>
+    </aside>
+  </section>
+
+  <section
+    class="section container featured-section"
+    aria-labelledby="work-title"
+    th:with="
+      featuredCategoryName = ${theme.config?.home?.featured_category},
+      featuredCategory = ${#strings.isEmpty(featuredCategoryName) ? null : categoryFinder.getByName(featuredCategoryName)},
+      featuredPosts = ${featuredCategory == null ? posts : postFinder.list({page: 1, size: 8, categoryName: featuredCategoryName})}
+    "
+  >
+    <header class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow" th:text="#{page.index.featuredEyebrow}">FEATURED STORIES</p>
+        <h2
+          id="work-title"
+          th:text="${featuredCategory != null ? featuredCategory.spec.displayName : #messages.msg('page.index.recentPosts')}"
+        >近期文章</h2>
+        <p
+          th:text="${featuredCategory != null and not #strings.isEmpty(featuredCategory.spec.description) ? featuredCategory.spec.description : #messages.msg('page.index.recentDescription')}"
+        >记录最新的实践、阅读与生活切片。</p>
+      </div>
+      <a
+        class="text-link"
+        th:href="@{${featuredCategory != null ? featuredCategory.status.permalink : site.routes.archivesUri + '/'}}"
+        th:text="${featuredCategory != null ? #messages.msg('page.index.viewCategory') : #messages.msg('page.index.viewAllPosts')}"
+      >查看全部文章</a>
+    </header>
+
+    <div class="featured-grid" th:if="${not #lists.isEmpty(featuredPosts.items)}">
+      <article
+        class="featured-card"
+        th:each="post, stat : ${featuredPosts.items}"
+        data-reveal
+        th:style="|--card-accent: ${stat.index % 4 == 0 ? 'var(--card-violet)' : (stat.index % 4 == 1 ? 'var(--card-rose)' : (stat.index % 4 == 2 ? 'var(--card-indigo)' : 'var(--card-green)'))}; --reveal-delay: ${stat.index % 2 * 70}ms;|"
+      >
+        <span class="featured-card__glow" aria-hidden="true"></span>
+        <div class="featured-card__body">
+          <p class="post-meta">
+            <time th:text="${#temporals.format(post.spec.publishTime, #messages.msg('date.format.short'))}">2026.07.10</time>
+            <span th:if="${not #lists.isEmpty(post.categories)}">
+              · <span th:text="${post.categories[0].spec.displayName}">随笔</span>
+            </span>
+          </p>
+          <h3><a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}">文章标题</a></h3>
+          <p th:text="${post.status.excerpt}">文章摘要</p>
+          <div class="featured-card__actions">
+            <a class="button button--primary button--small" th:href="@{${post.status.permalink}}" th:text="#{common.readPost}">阅读文章</a>
+            <a
+              class="button button--ghost button--small"
+              th:if="${not #lists.isEmpty(post.categories)}"
+              th:href="@{${post.categories[0].status.permalink}}"
+              th:text="${post.categories[0].spec.displayName}"
+            >分类</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="empty-state" th:if="${#lists.isEmpty(featuredPosts.items)}" th:text="#{page.index.emptyPosts}">还没有文章，先写下第一篇吧。</p>
+    <th:block th:if="${featuredCategory == null}">
+      <include src="pagination.html"></include>
+    </th:block>
+  </section>
+
+  <th:block
+    th:with="
+      contactPageName = ${theme.config?.home?.contact_page},
+      contactPage = ${#strings.isEmpty(contactPageName) ? null : singlePageFinder.getByName(contactPageName)}
+    "
+  >
+    <section
+      class="contact-cta container section"
+      aria-labelledby="contact-title"
+      data-reveal
+      th:if="${contactPage != null}"
+    >
+      <div>
+        <p class="eyebrow" th:text="#{page.index.contactEyebrow}">CONTACT</p>
+        <h2 id="contact-title" th:text="${contactPage.spec.title}">联系我们</h2>
+        <p th:text="${not #strings.isEmpty(contactPage.status.excerpt) ? contactPage.status.excerpt : site.subtitle}">
+          欢迎从这里开始一次对话。
+        </p>
+      </div>
+      <a class="button button--primary" th:href="@{${contactPage.status.permalink}}" th:text="#{common.viewDetails}">查看详情</a>
+    </section>
+  </th:block>
+</include>

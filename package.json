@@ -1,0 +1,28 @@
+{
+  "name": "wind-island",
+  "version": "0.0.2-beta.1",
+  "private": true,
+  "description": "风屿：支持深夜、暮色、月白与跟随系统\"月相\"配色的 Halo 内容主题，默认保持当前深夜品牌",
+  "author": "HP-L",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/HP-L/halo-theme-wind-island.git"
+  },
+  "homepage": "https://gitee.com/HP-L/halo-theme-wind-island",
+  "bugs": {
+    "url": "https://gitee.com/HP-L/halo-theme-wind-island/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "build": "node scripts/check-i18n.mjs && vite build && theme-package",
+    "build-only": "node scripts/check-i18n.mjs && vite build"
+  },
+  "devDependencies": {
+    "@halo-dev/theme-package-cli": "^1.0.1",
+    "@halo-dev/vite-plugin-halo-theme": "1.0.3",
+    "vite": "^8.0.0"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

@@ -1,0 +1,27 @@
+<include src="layout.html">
+  <template name="head">
+    <title th:text="|${title ?: #messages.msg('page.moment.title')} - ${site.title}|"></title>
+  </template>
+
+  <section class="moment-detail" aria-labelledby="moment-detail-title">
+    <header class="moment-detail__hero">
+      <a class="moment-back" th:href="@{/moments}">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></svg>
+        <span th:text="#{page.moment.backToMoments}"></span>
+      </a>
+      <h1 id="moment-detail-title" th:text="#{page.moment.heading}"></h1>
+      <p th:text="#{page.moment.description}"></p>
+    </header>
+
+    <th:block th:with="momentDetail = true, momentIndex = 0">
+      <include src="moment-entry.html"></include>
+    </th:block>
+
+    <p class="sr-only" aria-live="polite" data-moment-feedback></p>
+  </section>
+
+  <section id="moment-comments" class="comment-shell moment-comment-shell" th:if="${haloCommentEnabled}">
+    <h2 th:text="#{page.moment.comments.title}"></h2>
+    <halo:comment group="moment.halo.run" kind="Moment" th:attr="name=${moment.metadata.name}" />
+  </section>
+</include>
