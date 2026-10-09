@@ -25,7 +25,7 @@
       <span class="footer-copyright__separator" aria-hidden="true">·</span>
       <span th:text="${site.title}">风屿</span>
       <span class="footer-copyright__separator" aria-hidden="true">·</span>
-      <span th:text="#{footer.theme(${theme.spec.displayName})}">Theme: 风屿</span>
+      <a th:href="${theme.spec.repo}" target="_blank" rel="noopener noreferrer"><span th:text="#{footer.theme(${theme.spec.displayName})}">Theme: 风屿</span></a>
     </p>
     <ul
       class="footer-filings"
