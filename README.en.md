@@ -24,14 +24,19 @@
 
 ### 🏝️ Island Color System
 
-Four color schemes, switchable in one click from the top-right corner, with smooth View Transition animations.
+Four season-inspired island color schemes, switchable in one click from the top-right corner, with smooth View Transition animations.
 
-| Island Color | Description |
-|---|---|
-| **Night Island** 夜屿 | Dark theme, current default brand |
-| **Dusk Island** 暮屿 | Blue hour and afterglow tones |
-| **Dawn Island** 晓屿 | Light theme, silver paper and ink |
-| **Follow System** 随境 | Automatically follows device preference |
+<p align="center">
+  <img src="./screenshot-1.png" alt="Night & Dusk Island" width="400" />
+  <img src="./screenshot-2.png" alt="Dawn & Follow System" width="400" />
+</p>
+
+| Island Color | Page BG | Surface BG | Description |
+|---|---|---|---|
+| **Night Island** 夜屿 | `#0F172A` Deep Ink Blue | `#1E293B` Twilight Indigo | Dark theme — restrained, current default |
+| **Dusk Island** 暮屿 | `#1C2433` Dusk Blue-Gray | `#253040` Night Sky Gray | Blue hour meets afterglow, warm and cool intertwined |
+| **Dawn Island** 晓屿 | `#F0F3F1` Mist Green-Gray | `#F8FBF9` Rice Paper White | Light theme — silver paper & ink, soft morning light |
+| **Follow System** 随境 | — | — | Auto-switches Night / Dawn based on device preference |
 
 ### 🎨 Rich Theme Settings
 
