@@ -6,11 +6,11 @@
   "author": "HP-L",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/HP-L/halo-theme-wind-island.git"
+    "url": "https://github.com/HP-L/halo-theme-wind-island.git"
   },
-  "homepage": "https://gitee.com/HP-L/halo-theme-wind-island",
+  "homepage": "https://github.com/HP-L/halo-theme-wind-island",
   "bugs": {
-    "url": "https://gitee.com/HP-L/halo-theme-wind-island/issues"
+    "url": "https://github.com/HP-L/halo-theme-wind-island/issues"
   },
   "type": "module",
   "scripts": {

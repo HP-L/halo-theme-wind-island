@@ -6,4 +6,4 @@
 
 - 首次发布风屿主题。
 
-[0.0.1]: https://gitee.com/HP-L/halo-theme-wind-island.git
+[0.0.1]: https://github.com/HP-L/halo-theme-wind-island.git
