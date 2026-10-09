@@ -33,5 +33,5 @@ jobs:
       - name: Create Release and upload zip
         uses: softprops/action-gh-release@v2
         with:
-          files: wind-island.zip
+          files: "*.zip"
           generate_release_notes: true
