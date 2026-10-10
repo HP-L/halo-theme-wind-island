@@ -36,6 +36,20 @@ spec:
           accepts:
             - image/*
           value: ""
+        - $formkit: attachment
+          name: panel_background_dark
+          label: Panel 背景图片（夜屿/暮屿）
+          help: 夜屿和暮屿模式下的自定义背景；留空时根据季节自动切换
+          accepts:
+            - image/*
+          value: ""
+        - $formkit: attachment
+          name: panel_background_light
+          label: Panel 背景图片（晓屿）
+          help: 晓屿模式下的自定义背景；留空时根据季节自动切换
+          accepts:
+            - image/*
+          value: ""
         - $formkit: select
           name: cover_strip_source
           label: 封面条内容来源
