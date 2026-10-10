@@ -85,6 +85,12 @@ npm install
 
 修改 `_config.yml` 中的站点信息，然后：
 
+> **注意**：如果你部署在子目录下（如 GitHub Pages 的项目页面 `https://username.github.io/repo/`），需修改 `_config.yml` 中 URL 部分的 `root` 配置，例如：
+> ```yaml
+> root: /halo-theme-wind-island/
+> ```
+> 若部署在根域名下则保持 `root: /` 即可。
+
 ```bash
 npx hexo server
 ```

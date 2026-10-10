@@ -85,6 +85,12 @@ npm install
 
 Edit site information in `_config.yml`, then:
 
+> **Note**: If you deploy under a subdirectory (e.g., GitHub Pages project page `https://username.github.io/repo/`), update the `root` setting in `_config.yml`, for example:
+> ```yaml
+> root: /halo-theme-wind-island/
+> ```
+> If deploying at a root domain, keep `root: /` instead.
+
 ```bash
 npx hexo server
 ```
