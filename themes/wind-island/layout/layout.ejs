@@ -19,6 +19,43 @@
     <%- partial('_partial/island-color-bootstrap') %>
     <% if (config.favicon) { %><link rel="icon" type="image/png" href="<%- url_for(config.favicon) %>"><% } %>
     <link rel="stylesheet" href="<%- url_for('/css/main.css') %>">
+    <%
+      var panelBg = theme.panel_backgrounds;
+      if (panelBg) {
+        var bgRules = [];
+        var bgMap = {
+          spring_night: ['spring', 'nightIsland'],
+          spring_dusk: ['spring', 'duskIsland'],
+          spring_dawn: ['spring', 'dawnIsland'],
+          summer_night: ['summer', 'nightIsland'],
+          summer_dusk: ['summer', 'duskIsland'],
+          summer_dawn: ['summer', 'dawnIsland'],
+          autumn_night: ['autumn', 'nightIsland'],
+          autumn_dusk: ['autumn', 'duskIsland'],
+          autumn_dawn: ['autumn', 'dawnIsland'],
+          winter_night: ['winter', 'nightIsland'],
+          winter_dusk: ['winter', 'duskIsland'],
+          winter_dawn: ['winter', 'dawnIsland']
+        };
+        for (var key in bgMap) {
+          var val = panelBg[key];
+          if (val && typeof val === 'string' && val.trim()) {
+            val = val.trim();
+            if (val.indexOf('url(') === -1 && val.indexOf('linear-gradient(') === -1 && val.indexOf('radial-gradient(') === -1) {
+              val = 'url(' + val + ')';
+            }
+            var season = bgMap[key][0];
+            var island = bgMap[key][1];
+            bgRules.push('[data-season=' + season + '][data-resolved-island-color=' + island + '] .panel{background-image:' + val + '}');
+          }
+        }
+        if (bgRules.length > 0) {
+    %>
+    <style><%- bgRules.join('') %></style>
+    <%
+        }
+      }
+    %>
     <title><%= page.title ? page.title + ' - ' + config.title : config.title %></title>
     <%- partial('_partial/i18n-bootstrap') %>
     <script type="module" src="<%- url_for('/js/main.js') %>"></script>

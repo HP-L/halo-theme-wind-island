@@ -21,6 +21,29 @@ home:
   topic_categories: []
   contact_page: ""
 
+# Panel background images (customizable per season & island color)
+# Supports:
+#   - Simple path: "/images/custom-bg.png"  (automatically wrapped in url())
+#   - Full CSS value: "linear-gradient(#00000075,#141c287d),url(/images/bg.png)"
+#   - Just a URL: "url(/images/custom-bg.png)"
+# Leave empty to use default seasonal images
+panel_backgrounds:
+  # 夜屿 (nightIsland) — dark mode
+  spring_night: "/halo-theme-wind-island/images/24/谷雨-夜.png"
+  summer_night: "/halo-theme-wind-island/images/24/芒种-夜.png"
+  autumn_night: "/halo-theme-wind-island/images/24/霜降-夜.png"
+  winter_night: "/halo-theme-wind-island/images/24/大寒-夜.png"
+  # 暮屿 (duskIsland) — dusk mode
+  spring_dusk: "/halo-theme-wind-island/images/24/谷雨-夜.png"
+  summer_dusk: "/halo-theme-wind-island/images/24/芒种-夜.png"
+  autumn_dusk: "/halo-theme-wind-island/images/24/霜降-夜.png"
+  winter_dusk: "/halo-theme-wind-island/images/24/大寒-夜.png"
+  # 晓屿 (dawnIsland) — light mode
+  spring_dawn: "/halo-theme-wind-island/images/24/谷雨.png"
+  summer_dawn: "/halo-theme-wind-island/images/24/芒种.png"
+  autumn_dawn: "/halo-theme-wind-island/images/24/霜降.png"
+  winter_dawn: "/halo-theme-wind-island/images/24/大寒.png"
+
 # Post
 post:
   enable_reader_settings: true
