@@ -17,6 +17,7 @@
     <meta name="theme-color" content="#18181b" />
     <link href="https://fonts.googleapis.com/css2?family=<%= customFont.replace(/ /g, '+') %>&display=swap" rel="stylesheet" />
     <%- partial('_partial/island-color-bootstrap') %>
+    <% if (config.favicon) { %><link rel="icon" type="image/png" href="<%- url_for(config.favicon) %>"><% } %>
     <link rel="stylesheet" href="<%- url_for('/css/main.css') %>">
     <title><%= page.title ? page.title + ' - ' + config.title : config.title %></title>
     <%- partial('_partial/i18n-bootstrap') %>
