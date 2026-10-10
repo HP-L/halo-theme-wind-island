@@ -1,0 +1,41 @@
+name: Release Hexo Theme
+
+on:
+  push:
+    tags:
+      - 'hexo-v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: hexo   # 切换到 hexo 分支
+
+      - name: Extract version
+        id: version
+        run: |
+          TAG="${{ github.ref_name }}"
+          VERSION="${TAG#hexo-v}"
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "zip_name=wind-island-hexo-v${VERSION}.zip" >> $GITHUB_OUTPUT
+
+      - name: Package theme
+        run: |
+          mkdir -p release
+          cd themes
+          zip -r ../release/${{ steps.version.outputs.zip_name }} wind-island/
+          cd ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Wind Island Hexo v${{ steps.version.outputs.version }}"
+          files: release/${{ steps.version.outputs.zip_name }}
+          generate_release_notes: true
+          make_latest: false
