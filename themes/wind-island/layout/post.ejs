@@ -1,0 +1,176 @@
+<article class="article-shell container">
+  <header class="article-hero">
+    <h1><%= page.title %></h1>
+    <div class="article-meta">
+      <dl class="article-facts">
+        <div class="article-fact article-fact--author">
+          <dt data-i18n="page.post.author"><%= __('page.post.author') %></dt>
+          <dd>
+            <span class="article-author">
+              <span class="article-author__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 8a7 7 0 0 0-14 0" /></svg>
+              </span>
+              <span><%= page.author || config.author %></span>
+            </span>
+          </dd>
+        </div>
+        <div class="article-fact">
+          <dt data-i18n="page.post.published"><%= __('page.post.published') %></dt>
+          <dd><time datetime="<%= date(page.date, 'YYYY-MM-DD') %>"><%= date(page.date, __('date.format.long')) %></time></dd>
+        </div>
+        <% if (page.updated && page.updated !== page.date) { %>
+        <div class="article-fact">
+          <dt data-i18n="page.post.updated"><%= __('page.post.updated') %></dt>
+          <dd><time datetime="<%= date(page.updated, 'YYYY-MM-DD') %>"><%= date(page.updated, __('date.format.long')) %></time></dd>
+        </div>
+        <% } %>
+        <% if (theme.post && theme.post.reading_time) { %>
+        <div class="article-fact">
+          <dt data-i18n="page.post.readingTime"><%= __('page.post.readingTime') %></dt>
+          <dd><span data-reading-time aria-live="polite">&mdash;</span></dd>
+        </div>
+        <% } %>
+      </dl>
+      <% if (page.categories && page.categories.length) { %>
+      <div class="article-meta__taxonomy">
+        <span class="article-meta__label" data-i18n="page.post.categories"><%= __('page.post.categories') %></span>
+        <ul class="category-list" role="list" aria-label="<%= __('page.post.categoriesAria') %>" data-i18n-mode="aria-label" data-i18n="page.post.categoriesAria">
+          <% page.categories.forEach(function(cat) { %>
+          <li>
+            <a class="category-chip" href="<%- url_for(cat.path) %>">
+              <span class="category-chip__dot" aria-hidden="true"></span>
+              <span><%= cat.name %></span>
+            </a>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+      <% } %>
+    </div>
+  </header>
+
+  <aside class="reader-tools" aria-label="<%= __('page.post.readerTools') %>" data-i18n-mode="aria-label" data-i18n="page.post.readerTools" data-reader-tools>
+    <div class="reader-tools__actions">
+      <button type="button" data-article-share>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" /></svg>
+        <span data-i18n="page.post.share"><%= __('page.post.share') %></span>
+      </button>
+      <button type="button" data-article-print>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z" /></svg>
+        <span data-i18n="page.post.print"><%= __('page.post.print') %></span>
+      </button>
+    </div>
+
+    <% if (theme.post && theme.post.enable_reader_settings !== false) { %>
+    <details class="reader-settings" data-reader-settings>
+      <summary>
+        <span data-i18n="page.post.readerSettings"><%= __('page.post.readerSettings') %></span>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" /></svg>
+      </summary>
+      <div class="reader-settings__body">
+        <div class="reader-setting">
+          <div class="reader-setting__head">
+            <label for="reader-font-size" data-i18n="page.post.fontSize"><%= __('page.post.fontSize') %></label>
+            <output for="reader-font-size" data-reader-output="fontSize">17 px</output>
+          </div>
+          <input id="reader-font-size" type="range" min="15" max="21" step="1" value="17" data-reader-setting="fontSize" />
+        </div>
+        <div class="reader-setting">
+          <div class="reader-setting__head">
+            <label for="reader-line-height" data-i18n="page.post.lineHeight"><%= __('page.post.lineHeight') %></label>
+            <output for="reader-line-height" data-reader-output="lineHeight">1.80</output>
+          </div>
+          <input id="reader-line-height" type="range" min="1.55" max="2.05" step="0.05" value="1.8" data-reader-setting="lineHeight" />
+        </div>
+        <div class="reader-setting">
+          <div class="reader-setting__head">
+            <label for="reader-content-width" data-i18n="page.post.contentWidth"><%= __('page.post.contentWidth') %></label>
+            <output for="reader-content-width" data-reader-output="contentWidth">750 px</output>
+          </div>
+          <input id="reader-content-width" type="range" min="640" max="860" step="10" value="750" data-reader-setting="contentWidth" />
+        </div>
+        <button class="reader-settings__reset" type="button" data-reader-reset data-i18n="page.post.resetReaderSettings"><%= __('page.post.resetReaderSettings') %></button>
+      </div>
+    </details>
+    <% } %>
+    <p class="reader-tools__feedback" role="status" aria-live="polite" data-reader-feedback></p>
+  </aside>
+
+  <aside class="article-toc" id="article-toc" aria-label="<%= __('page.post.tocAria') %>" data-i18n-mode="aria-label" data-i18n="page.post.tocAria" aria-hidden="true" data-article-toc hidden inert>
+    <p class="eyebrow" data-i18n="page.post.tocEyebrow"><%= __('page.post.tocEyebrow') %></p>
+    <nav data-toc-list></nav>
+  </aside>
+  <button class="toc-toggle" type="button" aria-label="<%= __('page.post.openToc') %>" data-i18n-mode="aria-label" data-i18n="page.post.openToc" aria-controls="article-toc" aria-expanded="false" aria-hidden="true" data-toc-toggle hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>
+  </button>
+  <button class="toc-backdrop" type="button" aria-label="<%= __('page.post.closeToc') %>" data-i18n-mode="aria-label" data-i18n="page.post.closeToc" aria-controls="article-toc" aria-hidden="true" data-toc-backdrop hidden inert tabindex="-1"></button>
+
+  <% if (page.cover) { %>
+  <img class="article-cover" src="<%= page.cover %>" alt="<%= page.title %>" />
+  <% } %>
+
+  <div class="article-content"><%- page.content %></div>
+
+  <% if (page.tags && page.tags.length) { %>
+  <footer class="article-tags">
+    <p class="article-tags__label" data-i18n="page.post.tagsLabel"><%= __('page.post.tagsLabel') %></p>
+    <ul class="tag-list" role="list" aria-label="<%= __('page.post.tagsAria') %>" data-i18n-mode="aria-label" data-i18n="page.post.tagsAria">
+      <% page.tags.forEach(function(tag) { %>
+      <li>
+        <a class="tag-chip" href="<%- url_for(tag.path) %>" style="--taxonomy-color: var(--nav-violet)">
+          <span class="tag-chip__dot" aria-hidden="true"></span>
+          <span># <%= tag.name %></span>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+  </footer>
+  <% } %>
+
+  <nav class="post-nav" aria-label="<%= __('page.post.adjacentPosts') %>" data-i18n-mode="aria-label" data-i18n="page.post.adjacentPosts">
+    <% if (page.prev) { %>
+    <a href="<%- url_for(page.prev.path) %>">
+      <span data-i18n="page.post.previousPost"><%= __('page.post.previousPost') %></span>
+      <strong><%= page.prev.title %></strong>
+    </a>
+    <% } %>
+    <% if (page.next) { %>
+    <a href="<%- url_for(page.next.path) %>">
+      <span data-i18n="page.post.nextPost"><%= __('page.post.nextPost') %></span>
+      <strong><%= page.next.title %></strong>
+    </a>
+    <% } %>
+  </nav>
+</article>
+
+<%
+  var relatedPosts = site.posts.sort('date', -1).toArray().filter(function(p) {
+    return p._id !== page._id;
+  }).slice(0, 4);
+%>
+<% if (relatedPosts.length) { %>
+<section class="related-posts">
+  <div class="container">
+    <h2 data-i18n="page.post.continueReading"><%= __('page.post.continueReading') %></h2>
+    <div class="related-grid">
+      <% relatedPosts.forEach(function(post, index) { if (index < 4) { %>
+      <article class="recent-card" data-reveal>
+        <div class="recent-card__body">
+          <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+          <p class="post-meta"><time><%= date(post.date, 'YYYY.MM.DD') %></time></p>
+        </div>
+        <a class="recent-card__media" href="<%- url_for(post.path) %>" tabindex="-1">
+          <img src="<%= post.cover || url_for('/images/wind-island-hero-1.png') %>" alt="<%= post.title %>" loading="lazy" />
+        </a>
+      </article>
+      <% }}); %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (theme.comment && theme.comment.enable) { %>
+<section class="comment-shell container">
+  <%- partial('_partial/comments') %>
+</section>
+<% } %>

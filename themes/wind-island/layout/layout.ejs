@@ -1,0 +1,224 @@
+<!doctype html>
+<%
+  var colorScheme = theme.style && theme.style.color_scheme ? theme.style.color_scheme : 'nightIsland';
+  var customFont = theme.style && theme.style.custom_font ? theme.style.custom_font : 'LXGW Marker Gothic';
+  var fontStyle = '--custom-font: \'' + customFont + '\', \'PingFang SC\', \'Microsoft YaHei\', system-ui, sans-serif;';
+%>
+<html
+  lang="<%= config.language || 'zh-CN' %>"
+  data-color-scheme="dark"
+  data-island-color="nightIsland"
+  data-resolved-island-color="nightIsland"
+  <%= fontStyle ? 'style="' + fontStyle + '"' : '' %>
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#18181b" />
+    <link href="https://fonts.googleapis.com/css2?family=<%= customFont.replace(/ /g, '+') %>&display=swap" rel="stylesheet" />
+    <%- partial('_partial/island-color-bootstrap') %>
+    <link rel="stylesheet" href="<%- url_for('/css/main.css') %>">
+    <title><%= page.title ? page.title + ' - ' + config.title : config.title %></title>
+    <%- partial('_partial/i18n-bootstrap') %>
+    <script type="module" src="<%- url_for('/js/main.js') %>"></script>
+  </head>
+  <body
+    data-template="<%= page.layout %>"
+    data-archives-uri="<%- url_for('/archives') %>"
+    data-categories-uri="<%- url_for('/categories') %>"
+    data-tags-uri="<%- url_for('/tags') %>"
+  >
+    <div class="page-progress" aria-hidden="true" data-page-progress></div>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-mark" data-home-mark href="<%- url_for('/') %>" aria-label="<%= __('layout.backHome', config.title) %>" data-i18n-mode="aria-label" data-i18n="layout.backHome" data-i18n-args="[&quot;<%= config.title %>&quot;]">
+          <img
+            src="<%- url_for('/images/wind-island-hero-1.png') %>"
+            alt="<%= config.title %>"
+          />
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="<%= __('nav.menu.open') %>"
+          data-menu-toggle
+        >
+          <span class="menu-toggle__label menu-toggle__label--open" data-i18n="nav.menu.label"><%= __('nav.menu.label') %></span>
+          <span class="menu-toggle__label menu-toggle__label--close" data-i18n="common.close"><%= __('common.close') %></span>
+          <svg class="menu-toggle__chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+        </button>
+
+        <button
+          class="menu-backdrop"
+          type="button"
+          aria-label="<%= __('nav.menu.close') %>"
+          data-i18n-mode="aria-label"
+          data-i18n="nav.menu.close"
+          aria-hidden="true"
+          tabindex="-1"
+          data-menu-backdrop
+        ></button>
+
+        <div class="header-actions" id="primary-navigation" data-menu-panel>
+          <nav class="site-nav" aria-label="<%= __('nav.primary') %>" data-i18n-mode="aria-label" data-i18n="nav.primary" data-nav-track>
+            <ul>
+              <%
+                var navI18nMap = {
+                  '归档': 'nav.archives', '歸檔': 'nav.archives', 'Archives': 'nav.archives',
+                  '分类': 'nav.categories', '分類': 'nav.categories', 'Categories': 'nav.categories',
+                  '标签': 'nav.tags', '標籤': 'nav.tags', 'Tags': 'nav.tags',
+                  '关于': 'nav.about', '關於': 'nav.about', 'About': 'nav.about'
+                };
+                if (theme.menu) {
+                  for (var key in theme.menu) {
+              %>
+                  <li><a href="<%- url_for(theme.menu[key]) %>"<%- navI18nMap[key] ? ' data-i18n="' + navI18nMap[key] + '"' : '' %>><%= key %></a></li>
+              <%
+                  }
+                } else {
+              %>
+                <li><a href="<%- url_for('/archives') %>" data-i18n="nav.archives"><%= __('nav.archives') %></a></li>
+                <li><a href="<%- url_for('/categories') %>" data-i18n="nav.categories"><%= __('nav.categories') %></a></li>
+                <li><a href="<%- url_for('/tags') %>" data-i18n="nav.tags"><%= __('nav.tags') %></a></li>
+                <li><a href="<%- url_for('/about') %>" data-i18n="nav.about"><%= __('nav.about') %></a></li>
+              <% } %>
+            </ul>
+            <span class="nav-indicator-viewport" aria-hidden="true">
+              <span class="nav-indicator" data-nav-indicator></span>
+            </span>
+          </nav>
+
+          <svg class="island-color-symbols" aria-hidden="true" focusable="false">
+            <symbol id="wind-island-phase-nightIsland" viewBox="0 0 20 20">
+              <path d="M4.8 15.2A7.35 7.35 0 1 1 15.2 15.2" fill="none" stroke="#52525b" stroke-linecap="round" stroke-width="1.2"></path>
+              <path d="M10.25 5.2a4.8 4.8 0 1 0 3.1 8.45 5.45 5.45 0 0 1-3.1-8.45Z" fill="#facc15"></path>
+              <circle cx="4.8" cy="15.2" r="1.05" fill="#0ea5e9"></circle>
+            </symbol>
+            <symbol id="wind-island-phase-duskIsland" viewBox="0 0 20 20">
+              <path d="M4.8 15.2A7.35 7.35 0 1 1 15.2 15.2" fill="none" stroke="#5c6c66" stroke-linecap="round" stroke-width="1.2"></path>
+              <circle cx="10" cy="10" r="4.35" fill="#5eb2c1" fill-opacity=".26" stroke="#5eb2c1" stroke-width="1"></circle>
+              <path d="M5.65 10h8.7a4.35 4.35 0 0 1-8.7 0Z" fill="#e9b65f"></path>
+              <circle cx="15.2" cy="15.2" r="1.05" fill="#e9b65f"></circle>
+            </symbol>
+            <symbol id="wind-island-phase-dawnIsland" viewBox="0 0 20 20">
+              <path d="M4.8 15.2A7.35 7.35 0 1 1 15.2 15.2" fill="none" stroke="#73898b" stroke-linecap="round" stroke-width="1.2"></path>
+              <circle cx="10" cy="10" r="4.45" fill="#d1dddf" stroke="#0c6570" stroke-width="1"></circle>
+              <circle cx="8.6" cy="8.75" r=".62" fill="#8fa7a8"></circle>
+              <circle cx="11.55" cy="11.45" r=".42" fill="#8fa7a8"></circle>
+              <circle cx="4.8" cy="15.2" r="1.05" fill="#835c0f"></circle>
+            </symbol>
+            <symbol id="wind-island-phase-followSystem" viewBox="0 0 20 20">
+              <path d="M10 2.6A7.4 7.4 0 0 0 10 17.4" fill="none" stroke="#52525b" stroke-linecap="round" stroke-width="1.2"></path>
+              <path d="M10 2.6A7.4 7.4 0 0 1 10 17.4" fill="none" stroke="#73898b" stroke-linecap="round" stroke-width="1.2"></path>
+              <circle cx="10" cy="10" r="4.35" fill="#e8eff0" stroke="#73898b" stroke-width="1"></circle>
+              <path d="M10 5.65v8.7a4.35 4.35 0 0 1 0-8.7Z" fill="#18181b"></path>
+              <circle cx="10" cy="2.6" r=".95" fill="#facc15"></circle>
+              <circle cx="10" cy="17.4" r=".95" fill="#0ea5e9"></circle>
+            </symbol>
+          </svg>
+
+          <details class="island-color-switcher" data-island-color-switcher>
+            <summary aria-label="<%= __('nav.islandColor') %>" title="<%= __('nav.islandColor') %>">
+              <svg class="island-color-symbol island-color-symbol--trigger" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+                <use data-phase-icon="nightIsland" href="#wind-island-phase-nightIsland"></use>
+                <use data-phase-icon="duskIsland" href="#wind-island-phase-duskIsland"></use>
+                <use data-phase-icon="dawnIsland" href="#wind-island-phase-dawnIsland"></use>
+                <use data-phase-icon="followSystem" href="#wind-island-phase-followSystem"></use>
+              </svg>
+              <span class="island-color-switcher__label" data-i18n="nav.islandColor"><%= __('nav.islandColor') %></span>
+              <span class="island-color-switcher__current" data-island-color-current aria-hidden="true"><%= __('islandColor.nightIsland') %></span>
+              <svg class="island-color-switcher__chevron" aria-hidden="true" viewBox="0 0 20 20"><path d="m6 8 4 4 4-4"></path></svg>
+            </summary>
+            <fieldset class="island-color-switcher__panel">
+              <legend class="sr-only"><%= __('nav.islandColor') %></legend>
+              <label class="island-color-option" data-phase="nightIsland">
+                <input type="radio" name="island-color" value="nightIsland" data-island-color-option checked />
+                <svg class="island-color-symbol" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><use href="#wind-island-phase-nightIsland"></use></svg>
+                <span class="island-color-option__copy">
+                  <strong data-i18n="islandColor.nightIsland"><%= __('islandColor.nightIsland') %></strong>
+                  <small class="sr-only" data-i18n="islandColor.nightIsland.description"><%= __('islandColor.nightIsland.description') %></small>
+                </span>
+              </label>
+              <label class="island-color-option" data-phase="duskIsland">
+                <input type="radio" name="island-color" value="duskIsland" data-island-color-option />
+                <svg class="island-color-symbol" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><use href="#wind-island-phase-duskIsland"></use></svg>
+                <span class="island-color-option__copy">
+                  <strong data-i18n="islandColor.duskIsland"><%= __('islandColor.duskIsland') %></strong>
+                  <small class="sr-only" data-i18n="islandColor.duskIsland.description"><%= __('islandColor.duskIsland.description') %></small>
+                </span>
+              </label>
+              <label class="island-color-option" data-phase="dawnIsland">
+                <input type="radio" name="island-color" value="dawnIsland" data-island-color-option />
+                <svg class="island-color-symbol" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><use href="#wind-island-phase-dawnIsland"></use></svg>
+                <span class="island-color-option__copy">
+                  <strong data-i18n="islandColor.dawnIsland"><%= __('islandColor.dawnIsland') %></strong>
+                  <small class="sr-only" data-i18n="islandColor.dawnIsland.description"><%= __('islandColor.dawnIsland.description') %></small>
+                </span>
+              </label>
+              <label class="island-color-option" data-phase="followSystem">
+                <input type="radio" name="island-color" value="followSystem" data-island-color-option />
+                <svg class="island-color-symbol" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><use href="#wind-island-phase-followSystem"></use></svg>
+                <span class="island-color-option__copy">
+                  <strong data-i18n="islandColor.followSystem"><%= __('islandColor.followSystem') %></strong>
+                  <small class="sr-only" data-i18n="islandColor.followSystem.description"><%= __('islandColor.followSystem.description') %></small>
+                </span>
+              </label>
+            </fieldset>
+          </details>
+
+          <div class="language-switcher has-children" data-language-switcher>
+            <button
+              class="language-switcher__trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="language-submenu"
+              aria-label="<%= __('nav.language') %>"
+              data-i18n-mode="aria-label"
+              data-i18n="nav.language"
+              data-submenu-toggle
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+              </svg>
+              <span data-i18n="nav.language"><%= __('nav.language') %></span>
+              <svg class="language-switcher__chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg>
+            </button>
+            <ul class="submenu" id="language-submenu">
+              <li><a href="#" data-language="zh-CN" class="<%= config.language === 'zh-CN' ? 'active' : '' %>"><%= __('language.zhCN') %></a></li>
+              <li><a href="#" data-language="zh-TW" class="<%= config.language === 'zh-TW' ? 'active' : '' %>"><%= __('language.zhTW') %></a></li>
+              <li><a href="#" data-language="en" class="<%= config.language === 'en' ? 'active' : '' %>"><%= __('language.en') %></a></li>
+              <li><a href="#" data-language="ja" class="<%= config.language === 'ja' ? 'active' : '' %>"><%= __('language.ja') %></a></li>
+              <li><a href="#" data-language="ko" class="<%= config.language === 'ko' ? 'active' : '' %>"><%= __('language.ko') %></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <dialog
+      class="social-image-dialog"
+      id="social-image-dialog"
+      aria-labelledby="social-image-dialog-title"
+      data-social-image-dialog
+    >
+      <div class="social-image-dialog__panel">
+        <button class="social-image-dialog__close" type="button" aria-label="<%= __('nav.social.closeImage') %>" data-i18n-mode="aria-label" data-i18n="nav.social.closeImage" data-social-image-close>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+        <h2 id="social-image-dialog-title" data-social-image-title><%= __('nav.social.defaultName') %></h2>
+        <img data-social-image-preview alt="" />
+      </div>
+    </dialog>
+
+    <main class="site-main" id="content">
+      <%- body %>
+    </main>
+
+    <%- partial('_partial/footer') %>
+  </body>
+</html>

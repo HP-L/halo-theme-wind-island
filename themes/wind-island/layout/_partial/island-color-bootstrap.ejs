@@ -1,0 +1,30 @@
+<script>
+  (() => {
+    var root = document.documentElement;
+    var storageKey = "wind-island.island-color.v1";
+    var phases = ["nightIsland", "duskIsland", "dawnIsland", "followSystem"];
+    var configuredPhase = "<%= (theme.style && theme.style.color_scheme) ? theme.style.color_scheme : 'nightIsland' %>";
+    var fallbackPhase = phases.indexOf(configuredPhase) !== -1 ? configuredPhase : "nightIsland";
+    var phase = fallbackPhase;
+
+    try {
+      var storedPhase = localStorage.getItem(storageKey);
+      if (storedPhase && phases.indexOf(storedPhase) !== -1) phase = storedPhase;
+    } catch (e) {}
+
+    var systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+    var resolvedPhase = phase === "followSystem" ? (systemPrefersLight ? "dawnIsland" : "nightIsland") : phase;
+    root.dataset.defaultIslandColor = fallbackPhase;
+    root.dataset.islandColor = phase;
+    root.dataset.resolvedIslandColor = resolvedPhase;
+    root.dataset.colorScheme = resolvedPhase === "dawnIsland" ? "light" : "dark";
+
+    var themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) {
+      themeColor.setAttribute(
+        "content",
+        resolvedPhase === "dawnIsland" ? "#e8eff0" : resolvedPhase === "duskIsland" ? "#171e22" : "#18181b"
+      );
+    }
+  })();
+</script>

@@ -1,0 +1,14 @@
+<li class="post-card">
+  <div class="post-card__body">
+    <p class="post-meta">
+      <time><%= date(post.date, 'YYYY.MM.DD') %></time>
+      <% if (post.categories && post.categories.length) { %>
+        &middot; <span><%= post.categories.first().name %></span>
+      <% } %>
+    </p>
+    <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+    <% if (post.excerpt) { %>
+    <p class="post-card__excerpt"><%= post.excerpt %></p>
+    <% } %>
+  </div>
+</li>

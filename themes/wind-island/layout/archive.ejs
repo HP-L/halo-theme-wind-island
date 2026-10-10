@@ -1,0 +1,63 @@
+<% page.title = __('page.archives.heading'); %>
+
+<section class="listing-page container">
+  <header class="listing-hero">
+    <h1 data-i18n="page.archives.heading"><%= __('page.archives.heading') %></h1>
+    <p data-i18n="page.archives.description"><%= __('page.archives.description') %></p>
+  </header>
+
+  <% if (!page.posts || !page.posts.length) { %>
+  <p class="empty-state" data-i18n="page.archives.empty"><%= __('page.archives.empty') %></p>
+  <% } else { %>
+  <%
+    var posts = page.posts.toArray ? page.posts.toArray() : page.posts;
+    var archives = {};
+    posts.forEach(function(post) {
+      var year = date(post.date, 'YYYY');
+      if (!archives[year]) {
+        archives[year] = { months: {} };
+      }
+      var month = date(post.date, 'MM');
+      if (!archives[year].months[month]) {
+        archives[year].months[month] = [];
+      }
+      archives[year].months[month].push(post);
+    });
+    var years = Object.keys(archives).sort().reverse();
+  %>
+  <div class="archive-timeline">
+    <% years.forEach(function(year) { %>
+    <section class="archive-year">
+      <h2 class="archive-year__heading"><%= year %></h2>
+      <%
+        var months = Object.keys(archives[year].months).sort().reverse();
+        months.forEach(function(month) {
+          var monthPosts = archives[year].months[month];
+      %>
+      <div class="archive-month">
+        <h3 class="archive-month__heading"><%= year + '.' + month %></h3>
+        <ul class="post-list">
+          <% monthPosts.forEach(function(post) { %>
+          <li class="post-card">
+            <div class="post-card__body">
+              <p class="post-meta">
+                <time><%= date(post.date, 'YYYY.MM.DD') %></time>
+                <% if (post.categories && post.categories.length) { %>
+                  &middot; <span><%= post.categories.first().name %></span>
+                <% } %>
+              </p>
+              <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+              <% if (post.excerpt) { %><p class="post-card__excerpt"><%= post.excerpt %></p><% } %>
+            </div>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+      <% }); %>
+    </section>
+    <% }); %>
+  </div>
+  <% } %>
+
+  <%- partial('_partial/pagination') %>
+</section>

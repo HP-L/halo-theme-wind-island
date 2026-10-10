@@ -5,17 +5,16 @@
 <h1 align="center">风屿 · Wind Island</h1>
 
 <p align="center">
-  A restrained, serene Halo theme centered on native content and navigation
+  A restrained, serene Hexo blog theme focused on reading experience and visual aesthetics
 </p>
 
 <p align="center">
-  <sub>Adapted from <a href="https://github.com/DINGDANGMAOUP/moonlit-mountain">DINGDANGMAOUP/moonlit-mountain</a></sub>
+  <sub>Design inspired by <a href="https://github.com/DINGDANGMAOUP/moonlit-mountain">DINGDANGMAOUP/moonlit-mountain</a></sub>
 </p>
 
 <p align="center">
-  <a href="https://www.halo.run/"><img src="https://img.shields.io/badge/Halo-%3E%3D2.22.2-blue" alt="Halo" /></a>
+  <a href="https://hexo.io/"><img src="https://img.shields.io/badge/Hexo-%3E%3D7.0.0-blue" alt="Hexo" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
-  <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.0.1-orange" alt="Version" /></a>
 </p>
 
 ---
@@ -24,7 +23,7 @@
 
 ### 🏝️ Island Color System
 
-Four season-inspired island color schemes, switchable in one click from the top-right corner, with smooth View Transition animations.
+Four season-inspired island color schemes, switchable in one click from the navigation bar, with smooth View Transition animations.
 
 <p align="center">
   <img src="./screenshot-1.png" alt="Night & Dusk Island" width="400" />
@@ -33,59 +32,72 @@ Four season-inspired island color schemes, switchable in one click from the top-
 
 | Island Color | Page BG | Surface BG | Description |
 |---|---|---|---|
-| **Night Island** 夜屿 | `#0F172A` Deep Ink Blue | `#1E293B` Twilight Indigo | Dark theme — restrained, current default |
+| **Night Island** 夜屿 | `#0F172A` Deep Ink Blue | `#1E293B` Twilight Indigo | Dark theme — restrained, default brand color |
 | **Dusk Island** 暮屿 | `#1C2433` Dusk Blue-Gray | `#253040` Night Sky Gray | Blue hour meets afterglow, warm and cool intertwined |
 | **Dawn Island** 晓屿 | `#F0F3F1` Mist Green-Gray | `#F8FBF9` Rice Paper White | Light theme — silver paper & ink, soft morning light |
 | **Follow System** 随境 | — | — | Auto-switches Night / Dawn based on device preference |
 
 ### 🎨 Rich Theme Settings
 
-Customize via Halo Admin → Theme Settings:
+Customize via `_config.wind-island.yml`:
 
 - **Appearance** — Custom web fonts, default island color
-- **Homepage** — Hero image, cover strip source (pinned / category / tag), about page, featured categories
-- **Navigation** — Social media (up to 5, with icons, links, and image popups)
-- **Articles** — Reading settings panel (font size, line height, content width adjustable in real time)
-- **Footer** — ICP filing number, public security network filing number
+- **Homepage** — Hero image, cover strip source (pinned / category / tag), featured categories, topic collections, contact page
+- **Navigation** — Custom menus, social media icons with image popups
+- **Articles** — Reading settings panel (font size, line height, content width), reading time estimation, table of contents
+- **Footer** — ICP filing number, public security network filing number, copyright start year
+- **Comments** — Optional comment support
 
 ### 🌍 Internationalization Built-in
 
-Simplified Chinese, Traditional Chinese, English, 日本語, 한국어 — covering all UI strings and accessibility labels.
+Simplified Chinese, Traditional Chinese, English, 日本語, 한국어 — pure client-side i18n, switch languages without page refresh, covering all UI strings and accessibility labels.
+
+### 📖 Reading Experience
+
+- **Reading Settings Panel** — Font size / line height / content width adjustable in real time, preferences auto-saved
+- **Table of Contents (TOC)** — Auto-generated, expandable / collapsible
+- **Reading Time** — Automatic estimation for mixed Chinese/English content
+- **Share** — One-click copy article link / native sharing
+- **Print** — Print-optimized styles
+- **Prev/Next Navigation** — Adjacent article links at the bottom of each post
+
+### 🌿 Solar Term Atmosphere
+
+The homepage Hero area dynamically displays the current solar term based on the Chinese 24 solar terms calendar, with season-appropriate visual ambiance.
 
 ### 📱 Responsive & Accessible
 
-Mobile-friendly navigation and layout. ARIA labels, keyboard navigation, and semantic HTML throughout.
-
-### 🧩 Official Plugin Integration
-
-Auto-detects and adapts to these optional Halo plugins:
-
-- [PluginMoments](https://github.com/halo-sigs/plugin-moments) ≥ 1.16.1 — Moments list & detail
-- [PluginPhotos](https://github.com/halo-sigs/plugin-photos)  ≥ 2.0.0   — Photos gallery & detail
-- [PluginLinks](https://github.com/halo-sigs/plugin-links)   ≥ 2.2.1   — Links & subscription feed
-- [PluginSearchWidget](https://github.com/halo-sigs/plugin-search-widget) — Search widget
-- [PluginFeed](https://github.com/halo-sigs/plugin-feed)      — RSS feed
+Mobile-friendly navigation and layout. ARIA labels, keyboard navigation, and semantic HTML throughout. Supports `prefers-reduced-motion`.
 
 ---
 
 ## 📦 Installation
 
-### Upload via Admin Panel (Recommended)
+### Option 1: Use This Repository Directly
 
-1. Download the latest `.zip` from [Releases](https://github.com/HP-L/halo-theme-wind-island/releases)
-2. Halo Admin → **Appearance** → **Themes** → **Install Theme**
-3. Upload the `.zip` file and activate
-
-### Build from Source
+This repository is a complete Hexo site — clone and use immediately:
 
 ```bash
 git clone https://github.com/HP-L/halo-theme-wind-island.git
 cd halo-theme-wind-island
-corepack pnpm install
-corepack pnpm build
+npm install
 ```
 
-Upload the `.zip` from the `dist/` directory via Halo Admin.
+Edit site information in `_config.yml`, then:
+
+```bash
+npx hexo server
+```
+
+### Option 2: Theme Only
+
+Copy the `themes/wind-island/` directory into your existing Hexo project under `themes/`, then update your Hexo root `_config.yml`:
+
+```yaml
+theme: wind-island
+```
+
+Then create `_config.wind-island.yml` in your Hexo root directory, using `themes/wind-island/_config.yml` as a reference.
 
 ---
 
@@ -94,54 +106,57 @@ Upload the `.zip` from the `dist/` directory via Halo Admin.
 ### Requirements
 
 - Node.js ≥ 18
-- pnpm ≥ 8
-- Halo ≥ 2.22.2
+- Hexo ≥ 7.0.0
 
 ### Commands
 
 | Command | Description |
 |---|---|
-| `corepack pnpm dev` | Watch mode — builds `src/` to `templates/` on change |
-| `corepack pnpm build` | Production build (with i18n check) |
-| `corepack pnpm build-only` | Build only, skip i18n check |
-| `corepack pnpm check:i18n` | Validate i18n key completeness |
+| `npx hexo server` | Start local dev server (default `http://localhost:4000`) |
+| `npx hexo generate` | Generate static files to `public/` |
+| `npx hexo clean` | Clear cache and generated files |
+| `npx hexo new post "Title"` | Create a new post |
 
-> See [DEVELOPMENT.md](./DEVELOPMENT.md) for full details.
+### Theme Development
+
+Theme files are located in `themes/wind-island/`. Modify templates (`.ejs`), styles (`main.css`), or scripts (`main.js`) and refresh your browser to see changes. For JavaScript modifications, edit `themes/wind-island/source/js/main.js` directly (single bundled file).
 
 ---
 
 ## 📁 Project Structure
 
 ```
-├── src/
-│   ├── css/
-│   │   ├── main.css              # Main styles (island color CSS variables)
-│   │   └── links-talks.css       # Links / Moments styles
-│   ├── js/
-│   │   └── main.ts               # Core interaction logic
-│   ├── partials/                 # Reusable template fragments (header/footer/pagination etc.)
-│   ├── error/                    # Error page templates
-│   ├── layout.html               # Global layout (build-time include + Halo layout contract)
-│   ├── index.html                # Homepage
-│   ├── post.html                 # Article page
-│   ├── page.html                 # Custom page
-│   ├── archives.html             # Archives page
-│   ├── categories.html           # Categories list
-│   ├── category.html             # Category detail
-│   ├── tags.html                 # Tags list
-│   ├── tag.html                  # Tag detail
-│   ├── author.html               # Author page
-│   ├── moment.html               # Moment detail
-│   ├── moments.html              # Moments list
-│   ├── links.html                # Links & subscription feed
-│   ├── photo.html                # Photo detail
-│   └── photos.html               # Photos gallery
-├── i18n/                         # Internationalization resources
-├── public/                       # Static assets (fonts, images)
-├── scripts/                      # Utility scripts (i18n check)
-├── theme.yaml                    # Theme metadata
-├── settings.yaml                 # Theme settings form definition
-└── vite.config.ts                # Vite build configuration
+├── source/
+│   ├── _posts/                    # Blog posts (Markdown)
+│   ├── about/                     # About page
+│   ├── categories/                # Categories page
+│   └── tags/                      # Tags page
+├── themes/
+│   └── wind-island/               # Wind Island theme
+│       ├── languages/             # i18n resources (zh-CN / zh-TW / en / ja / ko)
+│       ├── layout/                # EJS templates
+│       │   ├── _partial/          # Reusable fragments (footer / pagination / post-card etc.)
+│       │   ├── layout.ejs         # Global layout
+│       │   ├── index.ejs          # Homepage
+│       │   ├── post.ejs           # Article page
+│       │   ├── page.ejs           # Custom page
+│       │   ├── archive.ejs        # Archives page
+│       │   ├── categories.ejs     # Categories list
+│       │   ├── category.ejs       # Category detail
+│       │   ├── tags.ejs           # Tags list
+│       │   ├── tag.ejs            # Tag detail
+│       │   └── links.ejs          # Links page
+│       ├── source/
+│       │   ├── css/
+│       │   │   ├── main.css       # Main styles (island color CSS variables)
+│       │   │   └── fonts/         # Bundled fonts (GeneralSans)
+│       │   ├── js/
+│       │   │   ├── main.js        # Core interaction logic
+│       │   │   └── i18n.js        # i18n runtime
+│       │   └── images/            # Theme images & solar term illustrations
+│       └── _config.yml            # Theme default configuration
+├── _config.yml                    # Hexo site configuration
+└── package.json
 ```
 
 ---
@@ -158,7 +173,7 @@ Upload the `.zip` from the `dist/` directory via Halo Admin.
 
 ## 📄 License
 
-[MIT](./LICENSE) · Adapted from [DINGDANGMAOUP/moonlit-mountain](https://github.com/DINGDANGMAOUP/moonlit-mountain).
+[MIT](./LICENSE) · Copyright (c) 2026 Phosphine · Design inspired by [DINGDANGMAOUP/moonlit-mountain](https://github.com/DINGDANGMAOUP/moonlit-mountain)
 
 ---
 
@@ -166,5 +181,4 @@ Upload the `.zip` from the `dist/` directory via Halo Admin.
 
 - [GitHub Repository](https://github.com/HP-L/halo-theme-wind-island)
 - [Issue Tracker](https://github.com/HP-L/halo-theme-wind-island/issues)
-- [Changelog](./CHANGELOG.md)
-- [Halo Documentation](https://docs.halo.run/)
+- [Hexo Documentation](https://hexo.io/docs/)

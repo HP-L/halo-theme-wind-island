@@ -1,0 +1,160 @@
+common:
+  all: 全部
+  close: 关闭
+  nextPage: 下一页
+  page: PAGE
+  pagination: 分页
+  postsCount: '文章：{0} 篇'
+  previousPage: 上一页
+  readPost: 阅读文章
+  viewDetails: 查看详情
+
+date:
+  format:
+    dateTime: yyyy年M月d日 HH:mm
+    long: yyyy年MM月dd日
+    moment: yyyy年M月d日
+    short: YYYY.MM.DD
+    time: HH:mm
+
+language:
+  en: English
+  ja: 日本語
+  ko: 한국어
+  zhCN: 简体中文
+  zhTW: 繁體中文
+
+layout:
+  backHome: 返回 {0} 首页
+  skipToContent: 跳到正文
+
+nav:
+  archives: 归档
+  about: 关于
+  categories: 分类
+  language: 语言
+  links: 友链
+  menu:
+    close: 关闭菜单
+    label: 菜单
+    open: 打开菜单
+  islandColor: 屿色
+  islandColor.description: 选择页面配色
+  moments: 瞬间
+  photos: 图库
+  primary: 主导航
+  search: 搜索
+  social:
+    closeImage: 关闭图片
+    defaultName: 社交媒体
+    imageAlt: '{0} 图片'
+    label: 社交媒体
+    viewImage: 查看 {0} 图片
+    visit: 访问 {0}
+  submenu:
+    collapse: 收起 {0} 子菜单
+    current: 当前项目
+    expand: 展开 {0} 子菜单
+  tags: 标签
+  tools: 站点工具
+
+islandColor:
+  nightIsland: 夜屿
+  nightIsland.description: 当前深色品牌
+  dawnIsland: 晓屿
+  dawnIsland.description: 银纸与墨色
+  followSystem: 随境
+  followSystem.description: 随设备明暗
+  duskIsland: 暮屿
+  duskIsland.description: 蓝时与余晖
+
+footer:
+  filings: 网站备案信息
+  icp: ICP
+  poweredBy: 由 {0} 驱动
+  theme: '主题：{0}'
+
+page:
+  index:
+    welcome: 欢迎来到
+    browseCategories: 浏览分类
+    collectionsEyebrow: 专题
+    collectionsTitle: 内容专题
+    contactEyebrow: 联系
+    emptyCategories: 分类会在这里形成你的内容地图。
+    emptyPosts: 还没有文章，先写下第一篇吧。
+    featuredEyebrow: 精选文章
+    heroImageAlt: '{0} 的首页主图'
+    pinnedPosts: 置顶文章
+    categoryPosts: 分类文章
+    tagPosts: 标签文章
+    recentDescription: 记录最新的实践、阅读与生活切片。
+    recentPosts: 近期文章
+    viewAllPosts: 查看全部文章
+    viewCategory: 查看该分类
+  archives:
+    description: 沿着时间，重读写下的痕迹。
+    empty: 还没有可归档的文章。
+    heading: 文章归档
+    title: 归档
+  author:
+    empty: 这位作者暂时没有文章。
+    eyebrow: AUTHOR
+  categories:
+    description: 从不同路径进入同一片思想的山林。
+    empty: 还没有文章分类。
+    eyebrow: CATEGORIES
+    heading: 文章分类
+    title: 分类
+  category:
+    empty: 这个分类暂时没有文章。
+    eyebrow: CATEGORY
+  tag:
+    empty: 这个标签暂时没有文章。
+    eyebrow: TAG
+  tags:
+    description: 一些反复出现、值得继续追问的词。
+    empty: 还没有文章标签。
+    eyebrow: TAGS
+    heading: 全部标签
+    title: 标签
+  post:
+    adjacentPosts: 相邻文章
+    author: 作者
+    categories: 分类
+    categoriesAria: 文章分类
+    closeToc: 关闭文章目录
+    contentWidth: 正文宽度
+    continueReading: 继续阅读
+    fontSize: 字号
+    lineHeight: 行高
+    linkCopied: 链接已复制，可以粘贴分享。
+    nextPost: 下一篇
+    openToc: 打开文章目录
+    previousPost: 上一篇
+    print: 打印
+    published: 发布于
+    readerReset: 已恢复默认排版。
+    readerSettings: 阅读设置
+    readerTools: 阅读工具
+    readingTime: 阅读时长
+    readingTimeValue: 约 {0} 分钟阅读
+    resetReaderSettings: 恢复默认
+    share: 分享
+    shareComplete: 分享完成。
+    shareError: 暂时无法分享，请复制地址栏链接。
+    tagsAria: 文章标签
+    tagsLabel: 标签
+    toc:
+      section: 章节 {0}
+    tocAria: 文章目录
+    tocEyebrow: 本页目录
+    updated: 更新于
+    visits: 访问量
+  links:
+    title: 友链
+    description: 有朋自远方来，不亦乐乎。感谢每一位驻足 {0} 的朋友。
+    empty: 暂时还没有友链，去交个朋友吧。
+    defaultGroup: 常遇
+    siteCount: '{0} 个站点'
+    visitNewTab: 访问 {0}（新标签页打开）

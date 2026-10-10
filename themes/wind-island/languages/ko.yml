@@ -1,0 +1,160 @@
+common:
+  all: 전체
+  close: 닫기
+  nextPage: 다음 페이지
+  page: 페이지
+  pagination: 페이지네이션
+  postsCount: '게시글: {0}건'
+  previousPage: 이전 페이지
+  readPost: 글 읽기
+  viewDetails: 자세히 보기
+
+date:
+  format:
+    dateTime: yyyy년 M월 d일 HH:mm
+    long: yyyy년 MM월 dd일
+    moment: yyyy년 M월 d일
+    short: yyyy.MM.dd
+    time: HH:mm
+
+language:
+  en: English
+  ja: 日本語
+  ko: 한국어
+  zhCN: 简体中文
+  zhTW: 繁體中文
+
+layout:
+  backHome: '{0} 홈으로 돌아가기'
+  skipToContent: 본문으로 건너뛰기
+
+nav:
+  archives: 아카이브
+  about: 소개
+  categories: 카테고리
+  language: 언어
+  links: 링크
+  menu:
+    close: 메뉴 닫기
+    label: 메뉴
+    open: 메뉴 열기
+  islandColor: 섬 색상
+  islandColor.description: 페이지 색상 선택
+  moments: 모먼트
+  photos: 사진
+  primary: 주 내비게이션
+  search: 검색
+  social:
+    closeImage: 이미지 닫기
+    defaultName: 소셜 미디어
+    imageAlt: '{0} 이미지'
+    label: 소셜 미디어
+    viewImage: '{0} 이미지 보기'
+    visit: '{0} 방문하기'
+  submenu:
+    collapse: '{0} 하위 메뉴 접기'
+    current: 현재 항목
+    expand: '{0} 하위 메뉴 펼치기'
+  tags: 태그
+  tools: 사이트 도구
+
+islandColor:
+  nightIsland: 밤의 섬
+  nightIsland.description: 오리지널 다크 브랜드
+  dawnIsland: 새벽의 섬
+  dawnIsland.description: 은종이와 먹색
+  followSystem: 시스템 따르기
+  followSystem.description: 기기 설정에 맞춤
+  duskIsland: 땅거미의 섬
+  duskIsland.description: 블루아워와 잔광
+
+footer:
+  filings: 사이트 등록 정보
+  icp: ICP
+  poweredBy: '{0} 제공'
+  theme: '테마: {0}'
+
+page:
+  index:
+    welcome: 환영합니다
+    browseCategories: 카테고리 둘러보기
+    collectionsEyebrow: 컬렉션
+    collectionsTitle: 콘텐츠 컬렉션
+    contactEyebrow: 연락처
+    emptyCategories: 카테고리가 여기에 콘텐츠 지도를 형성합니다.
+    emptyPosts: 아직 게시글이 없습니다. 첫 번째 글을 작성해 보세요.
+    featuredEyebrow: 주목할 글
+    heroImageAlt: '{0}의 히어로 이미지'
+    pinnedPosts: 고정된 글
+    categoryPosts: 카테고리 글
+    tagPosts: 태그 글
+    recentDescription: 실천, 독서, 일상의 최신 기록.
+    recentPosts: 최근 글
+    viewAllPosts: 모든 글 보기
+    viewCategory: 이 카테고리 보기
+  archives:
+    description: 시간의 흐름을 따라, 써 내려간 흔적을 다시 읽다.
+    empty: 아직 아카이브할 글이 없습니다.
+    heading: 글 아카이브
+    title: 아카이브
+  author:
+    empty: 이 저자에게는 아직 글이 없습니다.
+    eyebrow: 저자
+  categories:
+    description: 서로 다른 길로 같은 사색의 숲으로 들어갑니다.
+    empty: 아직 카테고리가 없습니다.
+    eyebrow: 카테고리
+    heading: 글 카테고리
+    title: 카테고리
+  category:
+    empty: 이 카테고리에는 아직 글이 없습니다.
+    eyebrow: 카테고리
+  tag:
+    empty: 이 태그의 글은 아직 없습니다.
+    eyebrow: 태그
+  tags:
+    description: 반복해서 나타나고, 계속 물을 가치가 있는 단어들.
+    empty: 아직 태그가 없습니다.
+    eyebrow: 태그
+    heading: 모든 태그
+    title: 태그
+  post:
+    adjacentPosts: 인접한 글
+    author: 저자
+    categories: 카테고리
+    categoriesAria: 글 카테고리
+    closeToc: 목차 닫기
+    contentWidth: 본문 너비
+    continueReading: 계속 읽기
+    fontSize: 글자 크기
+    lineHeight: 줄 높이
+    linkCopied: 링크가 복사되었습니다. 붙여넣기로 공유할 수 있습니다.
+    nextPost: 다음 글
+    openToc: 목차 열기
+    previousPost: 이전 글
+    print: 인쇄
+    published: 게시일
+    readerReset: 기본 레이아웃으로 복원되었습니다.
+    readerSettings: 읽기 설정
+    readerTools: 읽기 도구
+    readingTime: 읽는 시간
+    readingTimeValue: 약 {0}분 소요
+    resetReaderSettings: 기본값으로 복원
+    share: 공유
+    shareComplete: 공유되었습니다.
+    shareError: 공유할 수 없습니다. 주소 표시줄의 링크를 복사해 주세요.
+    tagsAria: 글 태그
+    tagsLabel: 태그
+    toc:
+      section: 섹션 {0}
+    tocAria: 목차
+    tocEyebrow: 이 페이지에서
+    updated: 업데이트일
+    visits: 조회수
+  links:
+    title: 링크
+    description: '{0}이(가) 소중히 여기는 이웃들이 모여 있습니다. 진지하게 글을 쓰고, 창조하며, 배움을 세상과 나누는 사람들입니다.'
+    empty: 아직 동행자가 없습니다
+    defaultGroup: 길에서 만나다
+    siteCount: '사이트: {0}개'
+    visitNewTab: '{0} 방문 (새 탭에서 열기)'

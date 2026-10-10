@@ -1,0 +1,26 @@
+<% page.title = __('page.tags.heading'); %>
+
+<section class="listing-page container">
+  <header class="listing-hero">
+    <p class="eyebrow" data-i18n="page.tags.eyebrow"><%= __('page.tags.eyebrow') %></p>
+    <h1 data-i18n="page.tags.heading"><%= __('page.tags.heading') %></h1>
+    <p data-i18n="page.tags.description"><%= __('page.tags.description') %></p>
+  </header>
+
+  <% var tagList = site.tags.toArray(); %>
+  <% if (!tagList.length) { %>
+  <p class="empty-state" data-i18n="page.tags.empty"><%= __('page.tags.empty') %></p>
+  <% } else { %>
+  <ul class="tag-cloud" role="list">
+    <% tagList.forEach(function(tag) { %>
+    <li>
+      <a class="tag-chip" href="<%- url_for(tag.path) %>" style="--taxonomy-color: var(--nav-violet)">
+        <span class="tag-chip__dot" aria-hidden="true"></span>
+        <span># <%= tag.name %></span>
+        <small data-i18n="common.postsCount" data-i18n-args='[&quot;<%= tag.posts.length %>&quot;]'><%= __('common.postsCount', tag.posts.length) %></small>
+      </a>
+    </li>
+    <% }); %>
+  </ul>
+  <% } %>
+</section>

@@ -1,0 +1,160 @@
+common:
+  all: 全部
+  close: 關閉
+  nextPage: 下一頁
+  page: 頁面
+  pagination: 分頁
+  postsCount: '文章：{0} 篇'
+  previousPage: 上一頁
+  readPost: 閱讀文章
+  viewDetails: 檢視詳情
+
+date:
+  format:
+    dateTime: yyyy年M月d日 HH:mm
+    long: yyyy年MM月dd日
+    moment: yyyy年M月d日
+    short: yyyy.MM.dd
+    time: HH:mm
+
+language:
+  en: English
+  ja: 日本語
+  ko: 한국어
+  zhCN: 简体中文
+  zhTW: 繁體中文
+
+layout:
+  backHome: 返回 {0} 首頁
+  skipToContent: 跳到正文
+
+nav:
+  archives: 歸檔
+  about: 關於
+  categories: 分類
+  language: 語言
+  links: 友鏈
+  menu:
+    close: 關閉選單
+    label: 選單
+    open: 開啟選單
+  islandColor: 嶼色
+  islandColor.description: 選擇頁面配色
+  moments: 瞬間
+  photos: 圖庫
+  primary: 主導航
+  search: 搜尋
+  social:
+    closeImage: 關閉圖片
+    defaultName: 社群媒體
+    imageAlt: '{0} 圖片'
+    label: 社群媒體
+    viewImage: 檢視 {0} 圖片
+    visit: 造訪 {0}
+  submenu:
+    collapse: 收起 {0} 子選單
+    current: 當前項目
+    expand: 展開 {0} 子選單
+  tags: 標籤
+  tools: 站點工具
+
+islandColor:
+  nightIsland: 夜嶼
+  nightIsland.description: 當前深色品牌
+  dawnIsland: 曉嶼
+  dawnIsland.description: 銀紙與墨色
+  followSystem: 隨境
+  followSystem.description: 隨裝置明暗
+  duskIsland: 暮嶼
+  duskIsland.description: 藍時與餘暉
+
+footer:
+  filings: 網站備案資訊
+  icp: ICP
+  poweredBy: 由 {0} 驅動
+  theme: '主題：{0}'
+
+page:
+  index:
+    welcome: 歡迎來到
+    browseCategories: 瀏覽分類
+    collectionsEyebrow: 專題
+    collectionsTitle: 內容專題
+    contactEyebrow: 聯絡
+    emptyCategories: 分類會在這裡形成你的內容地圖。
+    emptyPosts: 還沒有文章，先寫下第一篇吧。
+    featuredEyebrow: 精選文章
+    heroImageAlt: '{0} 的首頁主圖'
+    pinnedPosts: 置頂文章
+    categoryPosts: 分類文章
+    tagPosts: 標籤文章
+    recentDescription: 記錄最新的實踐、閱讀與生活切片。
+    recentPosts: 近期文章
+    viewAllPosts: 檢視全部文章
+    viewCategory: 檢視該分類
+  archives:
+    description: 沿著時間，重讀寫下的痕跡。
+    empty: 還沒有可歸檔的文章。
+    heading: 文章歸檔
+    title: 歸檔
+  author:
+    empty: 這位作者暫時沒有文章。
+    eyebrow: 作者
+  categories:
+    description: 從不同路徑進入同一片思想的山林。
+    empty: 還沒有文章分類。
+    eyebrow: 分類
+    heading: 文章分類
+    title: 分類
+  category:
+    empty: 這個分類暫時沒有文章。
+    eyebrow: 分類
+  tag:
+    empty: 這個標籤暫時沒有文章。
+    eyebrow: 標籤
+  tags:
+    description: 一些反覆出現、值得繼續追問的詞。
+    empty: 還沒有文章標籤。
+    eyebrow: 標籤
+    heading: 全部標籤
+    title: 標籤
+  post:
+    adjacentPosts: 相鄰文章
+    author: 作者
+    categories: 分類
+    categoriesAria: 文章分類
+    closeToc: 關閉文章目錄
+    contentWidth: 正文寬度
+    continueReading: 繼續閱讀
+    fontSize: 字號
+    lineHeight: 行高
+    linkCopied: 連結已複製，可以貼上分享。
+    nextPost: 下一篇
+    openToc: 開啟文章目錄
+    previousPost: 上一篇
+    print: 列印
+    published: 發佈於
+    readerReset: 已恢復預設排版。
+    readerSettings: 閱讀設定
+    readerTools: 閱讀工具
+    readingTime: 閱讀時長
+    readingTimeValue: 約 {0} 分鐘閱讀
+    resetReaderSettings: 恢復預設
+    share: 分享
+    shareComplete: 分享完成。
+    shareError: 暫時無法分享，請複製網址列連結。
+    tagsAria: 文章標籤
+    tagsLabel: 標籤
+    toc:
+      section: 章節 {0}
+    tocAria: 文章目錄
+    tocEyebrow: 本頁目錄
+    updated: 更新於
+    visits: 瀏覽量
+  links:
+    title: 友鏈
+    description: 這裡收集著 {0} 珍視的鄰居：仍在認真寫作、創造，也願意把經驗分享給世界的人。
+    empty: 還沒有同行者
+    defaultGroup: 沿途相遇
+    siteCount: '站點：{0} 個'
+    visitNewTab: 造訪 {0}（在新分頁開啟）

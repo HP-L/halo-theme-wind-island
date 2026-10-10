@@ -1,0 +1,34 @@
+<% page.title = page.tag; %>
+
+<section class="listing-page container">
+  <header class="listing-hero tag-archive-hero" style="--taxonomy-color: var(--nav-violet)">
+    <p class="eyebrow" data-i18n="page.tag.eyebrow"><%= __('page.tag.eyebrow') %></p>
+    <h1 class="tag-archive-title">
+      <span class="tag-chip__dot" aria-hidden="true"></span>
+      <span># <%= page.tag %></span>
+    </h1>
+  </header>
+
+  <% if (!page.posts || !page.posts.length) { %>
+  <p class="empty-state" data-i18n="page.tag.empty"><%= __('page.tag.empty') %></p>
+  <% } else { %>
+  <ul class="post-list">
+    <% page.posts.forEach(function(post) { %>
+    <li class="post-card">
+      <div class="post-card__body">
+        <p class="post-meta">
+          <time><%= date(post.date, 'YYYY.MM.DD') %></time>
+          <% if (post.categories && post.categories.length) { %>
+            &middot; <span><%= post.categories.first().name %></span>
+          <% } %>
+        </p>
+        <h2><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+        <% if (post.excerpt) { %><p class="post-card__excerpt"><%= post.excerpt %></p><% } %>
+      </div>
+    </li>
+    <% }); %>
+  </ul>
+  <% } %>
+
+  <%- partial('_partial/pagination') %>
+</section>

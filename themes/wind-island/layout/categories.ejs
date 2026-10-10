@@ -1,0 +1,37 @@
+<% page.title = __('page.categories.heading'); %>
+
+<section class="listing-page container">
+  <header class="listing-hero">
+    <p class="eyebrow" data-i18n="page.categories.eyebrow"><%= __('page.categories.eyebrow') %></p>
+    <h1 data-i18n="page.categories.heading"><%= __('page.categories.heading') %></h1>
+    <p data-i18n="page.categories.description"><%= __('page.categories.description') %></p>
+  </header>
+
+  <% var cats = site.categories.toArray(); %>
+  <% if (!cats.length) { %>
+  <p class="empty-state" data-i18n="page.categories.empty"><%= __('page.categories.empty') %></p>
+  <% } else { %>
+  <ul class="taxonomy-grid taxonomy-tree">
+    <% cats.forEach(function(cat) { %>
+    <li>
+      <a href="<%- url_for(cat.path) %>">
+        <span><%= cat.name %></span>
+        <strong><%= cat.posts.length %></strong>
+      </a>
+      <% if (cat.children && cat.children.length) { %>
+      <ul class="taxonomy-grid taxonomy-tree">
+        <% cat.children.forEach(function(child) { %>
+        <li>
+          <a href="<%- url_for(child.path) %>">
+            <span><%= child.name %></span>
+            <strong><%= child.posts.length %></strong>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </li>
+    <% }); %>
+  </ul>
+  <% } %>
+</section>

@@ -1,28 +1,26 @@
 {
-  "name": "wind-island",
-  "version": "0.0.2-beta.1",
+  "name": "hexo-site",
+  "version": "0.0.0",
   "private": true,
-  "description": "风屿：支持深夜、暮色、月白与跟随系统\"月相\"配色的 Halo 内容主题，默认保持当前深夜品牌",
-  "author": "HP-L",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/HP-L/halo-theme-wind-island.git"
-  },
-  "homepage": "https://github.com/HP-L/halo-theme-wind-island",
-  "bugs": {
-    "url": "https://github.com/HP-L/halo-theme-wind-island/issues"
-  },
-  "type": "module",
   "scripts": {
-    "dev": "vite build --watch",
-    "check:i18n": "node scripts/check-i18n.mjs",
-    "build": "node scripts/check-i18n.mjs && vite build && theme-package",
-    "build-only": "node scripts/check-i18n.mjs && vite build"
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
   },
-  "devDependencies": {
-    "@halo-dev/theme-package-cli": "^1.0.1",
-    "@halo-dev/vite-plugin-halo-theme": "1.0.3",
-    "vite": "^8.0.0"
+  "hexo": {
+    "version": "8.1.2"
   },
-  "packageManager": "pnpm@10.33.0"
+  "dependencies": {
+    "hexo": "^8.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-landscape": "^1.0.0"
+  }
 }

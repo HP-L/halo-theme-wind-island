@@ -1,0 +1,160 @@
+common:
+  all: All
+  close: Close
+  nextPage: Next page
+  page: PAGE
+  pagination: Pagination
+  postsCount: 'Posts: {0}'
+  previousPage: Previous page
+  readPost: Read article
+  viewDetails: View details
+
+date:
+  format:
+    dateTime: MMM d, yyyy, h:mm a
+    long: MMMM d, yyyy
+    moment: MMM d, yyyy
+    short: MMM d, yyyy
+    time: h:mm a
+
+language:
+  en: English
+  ja: 日本語
+  ko: 한국어
+  zhCN: 简体中文
+  zhTW: 繁體中文
+
+layout:
+  backHome: Go to {0} home page
+  skipToContent: Skip to content
+
+nav:
+  archives: Archives
+  about: About
+  categories: Categories
+  language: Language
+  links: Links
+  menu:
+    close: Close menu
+    label: Menu
+    open: Open menu
+  islandColor: Island color
+  islandColor.description: Choose page colors
+  moments: Moments
+  photos: Photos
+  primary: Primary navigation
+  search: Search
+  social:
+    closeImage: Close image
+    defaultName: Social media
+    imageAlt: '{0} image'
+    label: Social media
+    viewImage: View image for {0}
+    visit: Visit {0}
+  submenu:
+    collapse: Collapse {0} submenu
+    current: Current item
+    expand: Expand {0} submenu
+  tags: Tags
+  tools: Site tools
+
+islandColor:
+  nightIsland: Night Island
+  nightIsland.description: Original dark brand
+  dawnIsland: Dawn Island
+  dawnIsland.description: Silver paper and ink
+  followSystem: Follow system
+  followSystem.description: Match this device
+  duskIsland: Dusk Island
+  duskIsland.description: Blue hour and afterglow
+
+footer:
+  filings: Website registration information
+  icp: ICP
+  poweredBy: Powered by {0}
+  theme: 'Theme: {0}'
+
+page:
+  index:
+    welcome: Welcome to
+    browseCategories: Browse categories
+    collectionsEyebrow: COLLECTIONS
+    collectionsTitle: Collections
+    contactEyebrow: CONTACT
+    emptyCategories: Categories will form your content map here.
+    emptyPosts: No posts yet. Start with the first one.
+    featuredEyebrow: FEATURED STORIES
+    heroImageAlt: Hero image for {0}
+    pinnedPosts: Pinned posts
+    categoryPosts: Category posts
+    tagPosts: Tag posts
+    recentDescription: The latest notes on practice, reading, and everyday life.
+    recentPosts: Recent posts
+    viewAllPosts: View all posts
+    viewCategory: View category
+  archives:
+    description: Follow the timeline and revisit what was written.
+    empty: No posts to archive yet.
+    heading: Post archive
+    title: Archives
+  author:
+    empty: This author has no posts yet.
+    eyebrow: AUTHOR
+  categories:
+    description: Follow different paths into the same forest of ideas.
+    empty: No categories yet.
+    eyebrow: CATEGORIES
+    heading: Post categories
+    title: Categories
+  category:
+    empty: There are no posts in this category yet.
+    eyebrow: CATEGORY
+  tag:
+    empty: There are no posts with this tag yet.
+    eyebrow: TAG
+  tags:
+    description: Words worth revisiting and questioning.
+    empty: No tags yet.
+    eyebrow: TAGS
+    heading: All tags
+    title: Tags
+  post:
+    adjacentPosts: Adjacent posts
+    author: Author
+    categories: Categories
+    categoriesAria: Post categories
+    closeToc: Close table of contents
+    contentWidth: Content width
+    continueReading: Continue reading
+    fontSize: Font size
+    lineHeight: Line height
+    linkCopied: Link copied. Paste it anywhere to share.
+    nextPost: Next post
+    openToc: Open table of contents
+    previousPost: Previous post
+    print: Print
+    published: Published on
+    readerReset: Default reading layout restored.
+    readerSettings: Reading settings
+    readerTools: Reading tools
+    readingTime: Reading time
+    readingTimeValue: '{0} min read'
+    resetReaderSettings: Reset
+    share: Share
+    shareComplete: Shared.
+    shareError: Sharing is unavailable. Copy the link from the address bar.
+    tagsAria: Post tags
+    tagsLabel: Tagged
+    toc:
+      section: Section {0}
+    tocAria: Table of contents
+    tocEyebrow: ON THIS PAGE
+    updated: Updated
+    visits: Views
+  links:
+    title: Links
+    description: Welcome friends who stop by {0}. It is a pleasure to have you here.
+    empty: No links yet. Go make some friends.
+    defaultGroup: Encountered
+    siteCount: '{0} sites'
+    visitNewTab: Visit {0} (opens in new tab)

@@ -1,0 +1,160 @@
+common:
+  all: すべて
+  close: 閉じる
+  nextPage: 次のページ
+  page: ページ
+  pagination: ページネーション
+  postsCount: '記事: {0} 件'
+  previousPage: 前のページ
+  readPost: 記事を読む
+  viewDetails: 詳細を見る
+
+date:
+  format:
+    dateTime: yyyy年M月d日 HH:mm
+    long: yyyy年MM月dd日
+    moment: yyyy年M月d日
+    short: yyyy.MM.dd
+    time: HH:mm
+
+language:
+  en: English
+  ja: 日本語
+  ko: 한국어
+  zhCN: 简体中文
+  zhTW: 繁體中文
+
+layout:
+  backHome: '{0} のホームへ戻る'
+  skipToContent: 本文へスキップ
+
+nav:
+  archives: アーカイブ
+  about: 概要
+  categories: カテゴリー
+  language: 言語
+  links: リンク
+  menu:
+    close: メニューを閉じる
+    label: メニュー
+    open: メニューを開く
+  islandColor: 島の色
+  islandColor.description: ページの配色を選択
+  moments: モーメント
+  photos: フォト
+  primary: メインナビゲーション
+  search: 検索
+  social:
+    closeImage: 画像を閉じる
+    defaultName: ソーシャルメディア
+    imageAlt: '{0} の画像'
+    label: ソーシャルメディア
+    viewImage: '{0} の画像を見る'
+    visit: '{0} にアクセス'
+  submenu:
+    collapse: '{0} のサブメニューを折りたたむ'
+    current: 現在の項目
+    expand: '{0} のサブメニューを展開'
+  tags: タグ
+  tools: サイトツール
+
+islandColor:
+  nightIsland: 夜の島
+  nightIsland.description: オリジナルのダークブランド
+  dawnIsland: 暁の島
+  dawnIsland.description: 銀紙と墨色
+  followSystem: システムに従う
+  followSystem.description: デバイスの設定に合わせる
+  duskIsland: 夕暮れの島
+  duskIsland.description: ブルーアワーと残照
+
+footer:
+  filings: サイト登録情報
+  icp: ICP
+  poweredBy: '{0} によって提供'
+  theme: 'テーマ: {0}'
+
+page:
+  index:
+    welcome: ようこそ
+    browseCategories: カテゴリーを見る
+    collectionsEyebrow: コレクション
+    collectionsTitle: コンテンツコレクション
+    contactEyebrow: お問い合わせ
+    emptyCategories: カテゴリーがここにコンテンツマップを形成します。
+    emptyPosts: まだ記事がありません。最初の一編を書きましょう。
+    featuredEyebrow: 注目の記事
+    heroImageAlt: '{0} のヒーロー画像'
+    pinnedPosts: 固定記事
+    categoryPosts: カテゴリー記事
+    tagPosts: タグ記事
+    recentDescription: 実践、読書、日常の最新の記録。
+    recentPosts: 最近の記事
+    viewAllPosts: すべての記事を見る
+    viewCategory: このカテゴリーを見る
+  archives:
+    description: 時系列に沿って、書き綴った痕跡を読み返す。
+    empty: まだアーカイブできる記事がありません。
+    heading: 記事アーカイブ
+    title: アーカイブ
+  author:
+    empty: この著者にはまだ記事がありません。
+    eyebrow: 著者
+  categories:
+    description: 異なる道筋から同じ思索の森へ入っていく。
+    empty: まだカテゴリーがありません。
+    eyebrow: カテゴリー
+    heading: 記事カテゴリー
+    title: カテゴリー
+  category:
+    empty: このカテゴリーにはまだ記事がありません。
+    eyebrow: カテゴリー
+  tag:
+    empty: このタグの記事はまだありません。
+    eyebrow: タグ
+  tags:
+    description: 繰り返し現れ、問い続ける価値のある言葉たち。
+    empty: まだタグがありません。
+    eyebrow: タグ
+    heading: すべてのタグ
+    title: タグ
+  post:
+    adjacentPosts: 隣接する記事
+    author: 著者
+    categories: カテゴリー
+    categoriesAria: 記事カテゴリー
+    closeToc: 目次を閉じる
+    contentWidth: 本文の幅
+    continueReading: 読み続ける
+    fontSize: 文字サイズ
+    lineHeight: 行の高さ
+    linkCopied: リンクをコピーしました。貼り付けて共有できます。
+    nextPost: 次の記事
+    openToc: 目次を開く
+    previousPost: 前の記事
+    print: 印刷
+    published: 公開日
+    readerReset: デフォルトのレイアウトに戻しました。
+    readerSettings: 読書設定
+    readerTools: 読書ツール
+    readingTime: 読了時間
+    readingTimeValue: 約 {0} 分で読めます
+    resetReaderSettings: デフォルトに戻す
+    share: 共有
+    shareComplete: 共有しました。
+    shareError: 共有できません。アドレスバーのリンクをコピーしてください。
+    tagsAria: 記事タグ
+    tagsLabel: タグ
+    toc:
+      section: セクション {0}
+    tocAria: 目次
+    tocEyebrow: このページの内容
+    updated: 更新日
+    visits: 閲覧数
+  links:
+    title: リンク
+    description: '{0} が大切にする隣人たちが集まっています。真摯に書き、創造し、学びを世界と共有し続ける人々です。'
+    empty: まだ同行者がいません
+    defaultGroup: 道中で出会う
+    siteCount: 'サイト: {0} 件'
+    visitNewTab: '{0} にアクセス（新しいタブで開く）'

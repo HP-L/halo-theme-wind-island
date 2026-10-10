@@ -1,0 +1,43 @@
+# 风屿 (Wind Island) - Hexo Theme Configuration
+# Menu
+menu:
+  归档: /archives
+  分类: /categories
+  标签: /tags
+  关于: /about
+
+# Style
+style:
+  color_scheme: nightIsland
+  custom_font: "LXGW Marker Gothic"
+
+# Home page
+home:
+  hero_image: ""
+  cover_strip_source: pinned
+  cover_strip_category: ""
+  cover_strip_tag: ""
+  featured_category: ""
+  topic_categories: []
+  contact_page: ""
+
+# Post
+post:
+  enable_reader_settings: true
+  reading_time: true
+
+# Footer
+footer:
+  copyright_start_year: ""
+  icp_number: ""
+  icp_url: ""
+  public_security_number: ""
+  public_security_url: ""
+  public_security_icon: ""
+
+# Comments
+comment:
+  enable: false
+
+# CDN / Asset prefix
+asset_prefix: ""

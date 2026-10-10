@@ -5,17 +5,16 @@
 <h1 align="center">风屿 · Wind Island</h1>
 
 <p align="center">
-  一款克制、沉静、以 Halo 原生内容与导航体系为中心的主题
+  一款克制、沉静的 Hexo 博客主题，注重阅读体验与视觉美感
 </p>
 
 <p align="center">
-  <sub>基于 <a href="https://github.com/DINGDANGMAOUP/moonlit-mountain">DINGDANGMAOUP/moonlit-mountain</a> 修改而来</sub>
+  <sub>设计灵感源自 <a href="https://github.com/DINGDANGMAOUP/moonlit-mountain">DINGDANGMAOUP/moonlit-mountain</a></sub>
 </p>
 
 <p align="center">
-  <a href="https://www.halo.run/"><img src="https://img.shields.io/badge/Halo-%3E%3D2.22.2-blue" alt="Halo" /></a>
+  <a href="https://hexo.io/"><img src="https://img.shields.io/badge/Hexo-%3E%3D7.0.0-blue" alt="Hexo" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
-  <a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.0.1-orange" alt="Version" /></a>
 </p>
 
 ---
@@ -24,7 +23,7 @@
 
 ### 🌙 屿色配色系统
 
-四种随季节变幻，屿色配色方案，页面右上角一键切换，切换带有流畅的 View Transition 动画。
+四种随季节变幻的屿色配色方案，导航栏一键切换，带有流畅的 View Transition 动画。
 
 <p align="center">
   <img src="./screenshot-1.png" alt="夜屿 · 暮屿" width="400" />
@@ -33,59 +32,72 @@
 
 | 屿色 | 页面底色 | 内容区底色 | 说明 |
 |---|---|---|---|
-| **夜屿** Night Island | `#0F172A` 深墨蓝 | `#1E293B` 暮靛灰 | 深色主题，深邃克制，当前默认品牌 |
+| **夜屿** Night Island | `#0F172A` 深墨蓝 | `#1E293B` 暮靛灰 | 深色主题，深邃克制，默认品牌色 |
 | **暮屿** Dusk Island | `#1C2433` 薄暮蓝灰 | `#253040` 夜空蓝灰 | 蓝时与余晖交织，冷暖相融 |
 | **晓屿** Dawn Island | `#F0F3F1` 晨雾绿灰 | `#F8FBF9` 素纸白 | 浅色主题，银纸墨色，晨光柔和 |
 | **随境** Follow System | — | — | 自动跟随设备明暗偏好，切换夜屿 / 晓屿 |
 
 ### 🎨 丰富的主题配置
 
-通过 Halo 后台「主题设置」即可自定义：
+通过 `_config.wind-island.yml` 即可自定义：
 
 - **外观** — 自定义在线字体、默认屿色
-- **首页** — Hero 图片、封面条来源（置顶 / 分类 / 标签）、关于页面、精选分类
-- **导航** — 社交媒体配置（最多 5 个，支持图标、链接与图片弹窗）
-- **文章** — 阅读设置面板（字号、行高、正文宽度实时可调）
-- **页脚** — ICP 备案号、公安联网备案号
+- **首页** — Hero 图片、封面条来源（置顶 / 分类 / 标签）、精选分类、专题集合、联系页面
+- **导航** — 自定义菜单、社交媒体图标与图片弹窗
+- **文章** — 阅读设置面板（字号、行高、正文宽度实时可调）、阅读时长估算、文章目录
+- **页脚** — ICP 备案号、公安联网备案号、版权起始年份
+- **评论** — 可选开启评论支持
 
 ### 🌍 国际化开箱即用
 
-简体中文、繁體中文、English、日本語、한국어，覆盖前端文案与无障碍标签。
+简体中文、繁體中文、English、日本語、한국어 —— 纯客户端 i18n 实现，无需刷新即可切换语言，覆盖所有 UI 文案与无障碍标签。
+
+### 📖 阅读体验
+
+- **阅读设置面板** — 字号 / 行高 / 正文宽度实时可调，偏好自动保存
+- **文章目录（TOC）** — 自动生成，支持展开 / 收起
+- **阅读时长估算** — 自动统计中英文混合阅读时间
+- **分享功能** — 一键复制文章链接 / 原生分享
+- **打印优化** — 专为打印场景优化的样式
+- **上下篇导航** — 文章底部自动展示相邻文章
+
+### 🌿 节气氛围
+
+首页 Hero 区域随中国二十四节气动态展示当季节气名称，搭配对应季节的视觉氛围。
 
 ### 📱 响应式与无障碍
 
-移动端友好的导航与排版，ARIA 标签、键盘导航、语义化 HTML 贯穿始终。
-
-### 🧩 官方插件集成
-
-自动检测并适配以下 Halo 官方插件（均为可选）：
-
-- [PluginMoments](https://github.com/halo-sigs/plugin-moments) ≥ 1.16.1 — 瞬间列表与详情
-- [PluginPhotos](https://github.com/halo-sigs/plugin-photos)  ≥ 2.0.0   — 图库列表与详情
-- [PluginLinks](https://github.com/halo-sigs/plugin-links)   ≥ 2.2.1   — 友链与订阅动态
-- [PluginSearchWidget](https://github.com/halo-sigs/plugin-search-widget) — 搜索挂件
-- [PluginFeed](https://github.com/halo-sigs/plugin-feed)      — RSS 订阅
+移动端友好的导航与排版，ARIA 标签、键盘导航、语义化 HTML 贯穿始终，支持 `prefers-reduced-motion`。
 
 ---
 
 ## 📦 安装
 
-### 后台上传（推荐）
+### 方式一：直接使用本仓库
 
-1. 在 [Releases](https://github.com/HP-L/halo-theme-wind-island/releases) 页面下载最新 `.zip` 文件
-2. 登录 Halo 后台 → **外观** → **主题** → **安装主题**
-3. 上传 `.zip` 文件并启用
-
-### 从源码构建
+本仓库是一个完整的 Hexo 站点，克隆后即可使用：
 
 ```bash
 git clone https://github.com/HP-L/halo-theme-wind-island.git
 cd halo-theme-wind-island
-corepack pnpm install
-corepack pnpm build
+npm install
 ```
 
-将 `dist/` 目录下的 `.zip` 文件上传至 Halo 后台即可。
+修改 `_config.yml` 中的站点信息，然后：
+
+```bash
+npx hexo server
+```
+
+### 方式二：仅使用主题
+
+将 `themes/wind-island/` 目录复制到你现有 Hexo 项目的 `themes/` 下，然后在 Hexo 根目录 `_config.yml` 中修改：
+
+```yaml
+theme: wind-island
+```
+
+接着在 Hexo 根目录创建 `_config.wind-island.yml`，参考 `themes/wind-island/_config.yml` 进行配置。
 
 ---
 
@@ -94,54 +106,57 @@ corepack pnpm build
 ### 环境要求
 
 - Node.js ≥ 18
-- pnpm ≥ 8
-- Halo ≥ 2.22.2
+- Hexo ≥ 7.0.0
 
 ### 开发命令
 
 | 命令 | 说明 |
 |---|---|
-| `corepack pnpm dev` | 监听模式，`src/` 变更实时构建到 `templates/` |
-| `corepack pnpm build` | 生产构建（含 i18n 校验） |
-| `corepack pnpm build-only` | 仅构建，跳过 i18n 校验 |
-| `corepack pnpm check:i18n` | 检查多语言键值完整性 |
+| `npx hexo server` | 启动本地开发服务器（默认 `http://localhost:4000`） |
+| `npx hexo generate` | 生成静态文件到 `public/` |
+| `npx hexo clean` | 清除缓存与生成文件 |
+| `npx hexo new post "标题"` | 新建文章 |
 
-> 详细说明见 [DEVELOPMENT.md](./DEVELOPMENT.md)。
+### 主题开发
+
+主题文件位于 `themes/wind-island/`，修改模板（`.ejs`）、样式（`main.css`）或脚本（`main.js`）后刷新浏览器即可看到效果。如需修改 JavaScript，直接编辑 `themes/wind-island/source/js/main.js`（已打包的单文件）。
 
 ---
 
 ## 📁 项目结构
 
 ```
-├── src/
-│   ├── css/
-│   │   ├── main.css              # 主样式（含屿色 CSS 变量）
-│   │   └── links-talks.css       # 友链 / 瞬间样式
-│   ├── js/
-│   │   └── main.ts               # 核心交互逻辑
-│   ├── partials/                 # 可复用模板片段（header/footer/pagination 等）
-│   ├── error/                    # 错误页面模板
-│   ├── layout.html               # 全局布局（构建时 include + Halo 布局契约）
-│   ├── index.html                # 首页
-│   ├── post.html                 # 文章页
-│   ├── page.html                 # 独立页面
-│   ├── archives.html             # 归档页
-│   ├── categories.html           # 分类列表
-│   ├── category.html             # 分类详情
-│   ├── tags.html                 # 标签列表
-│   ├── tag.html                  # 标签详情
-│   ├── author.html               # 作者页
-│   ├── moment.html               # 瞬间详情
-│   ├── moments.html              # 瞬间列表
-│   ├── links.html                # 友链与订阅动态
-│   ├── photo.html                # 图库详情
-│   └── photos.html               # 图库列表
-├── i18n/                         # 多语言资源
-├── public/                       # 静态资源（字体、图片）
-├── scripts/                      # 辅助脚本（i18n 校验）
-├── theme.yaml                    # 主题元信息
-├── settings.yaml                 # 主题设置表单定义
-└── vite.config.ts                # Vite 构建配置
+├── source/
+│   ├── _posts/                    # 博客文章（Markdown）
+│   ├── about/                     # 关于页面
+│   ├── categories/                # 分类页
+│   └── tags/                      # 标签页
+├── themes/
+│   └── wind-island/               # 风屿主题
+│       ├── languages/             # 多语言资源（zh-CN / zh-TW / en / ja / ko）
+│       ├── layout/                # EJS 模板
+│       │   ├── _partial/          # 可复用片段（footer / pagination / post-card 等）
+│       │   ├── layout.ejs         # 全局布局
+│       │   ├── index.ejs          # 首页
+│       │   ├── post.ejs           # 文章页
+│       │   ├── page.ejs           # 独立页面
+│       │   ├── archive.ejs        # 归档页
+│       │   ├── categories.ejs     # 分类列表
+│       │   ├── category.ejs       # 分类详情
+│       │   ├── tags.ejs           # 标签列表
+│       │   ├── tag.ejs            # 标签详情
+│       │   └── links.ejs          # 友链页
+│       ├── source/
+│       │   ├── css/
+│       │   │   ├── main.css       # 主样式（含屿色 CSS 变量）
+│       │   │   └── fonts/         # 内置字体（GeneralSans）
+│       │   ├── js/
+│       │   │   ├── main.js        # 核心交互逻辑
+│       │   │   └── i18n.js        # 国际化运行时
+│       │   └── images/            # 主题图片与节气插图
+│       └── _config.yml            # 主题默认配置
+├── _config.yml                    # Hexo 站点配置
+└── package.json
 ```
 
 ---
@@ -158,7 +173,7 @@ corepack pnpm build
 
 ## 📄 许可证
 
-[MIT](./LICENSE) · 基于 [DINGDANGMAOUP/moonlit-mountain](https://github.com/DINGDANGMAOUP/moonlit-mountain) 修改而来。
+[MIT](./LICENSE) · Copyright (c) 2026 Phosphine · 设计灵感源自 [DINGDANGMAOUP/moonlit-mountain](https://github.com/DINGDANGMAOUP/moonlit-mountain)
 
 ---
 
@@ -166,5 +181,4 @@ corepack pnpm build
 
 - [GitHub 仓库](https://github.com/HP-L/halo-theme-wind-island)
 - [问题反馈](https://github.com/HP-L/halo-theme-wind-island/issues)
-- [更新日志](./CHANGELOG.md)
-- [Halo 官方文档](https://docs.halo.run/)
+- [Hexo 官方文档](https://hexo.io/docs/)

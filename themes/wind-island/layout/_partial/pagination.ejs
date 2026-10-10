@@ -1,0 +1,11 @@
+<% if (page.prev || page.next) { %>
+<nav class="pagination" aria-label="<%= __('common.pagination') %>" data-i18n-mode="aria-label" data-i18n="common.pagination">
+  <% if (page.prev) { %>
+  <a href="<%- url_for(page.prev_link) %>">&larr; <span data-i18n="common.previousPage"><%= __('common.previousPage') %></span></a>
+  <% } %>
+  <span><%= page.current %> / <%= page.total %></span>
+  <% if (page.next) { %>
+  <a href="<%- url_for(page.next_link) %>"><span data-i18n="common.nextPage"><%= __('common.nextPage') %></span> &rarr;</a>
+  <% } %>
+</nav>
+<% } %>

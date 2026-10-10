@@ -1,0 +1,39 @@
+<% if (theme.comment && theme.comment.type) { %>
+  <% if (theme.comment.type === 'waline') { %>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+    init({
+      el: '#waline',
+      serverURL: '<%= theme.comment.waline && theme.comment.waline.serverURL ? theme.comment.waline.serverURL : "" %>',
+      lang: '<%= config.language || "zh-CN" %>',
+      dark: 'auto',
+    });
+  </script>
+  <% } else if (theme.comment.type === 'twikoo') { %>
+  <div id="twikoo"></div>
+  <script src="https://unpkg.com/twikoo@1/dist/twikoo.all.min.js"></script>
+  <script>
+    twikoo.init({
+      envId: '<%= theme.comment.twikoo && theme.comment.twikoo.envId ? theme.comment.twikoo.envId : "" %>',
+      el: '#twikoo',
+      lang: '<%= config.language || "zh-CN" %>',
+    });
+  </script>
+  <% } else if (theme.comment.type === 'giscus') { %>
+  <script src="https://giscus.app/client.js"
+    data-repo="<%= theme.comment.giscus && theme.comment.giscus.repo ? theme.comment.giscus.repo : "" %>"
+    data-repo-id="<%= theme.comment.giscus && theme.comment.giscus.repoId ? theme.comment.giscus.repoId : "" %>"
+    data-category="<%= theme.comment.giscus && theme.comment.giscus.category ? theme.comment.giscus.category : "" %>"
+    data-category-id="<%= theme.comment.giscus && theme.comment.giscus.categoryId ? theme.comment.giscus.categoryId : "" %>"
+    data-mapping="<%= theme.comment.giscus && theme.comment.giscus.mapping ? theme.comment.giscus.mapping : "pathname" %>"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="preferred_color_scheme"
+    data-lang="<%= config.language || "zh-CN" %>"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <% } %>
+<% } %>

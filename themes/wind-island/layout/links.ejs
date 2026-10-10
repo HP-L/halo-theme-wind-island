@@ -1,0 +1,78 @@
+<% page.title = __('page.links.title'); %>
+
+<section class="links-page container">
+  <header class="links-page__hero">
+    <h1 data-i18n="page.links.title"><%= __('page.links.title') %></h1>
+    <p data-i18n="page.links.description" data-i18n-args="[&quot;<%= config.title %>&quot;]"><%= __('page.links.description', config.title) %></p>
+  </header>
+
+  <%
+    var links = site.data ? (site.data.links || []) : [];
+    if (!links.length) {
+  %>
+  <p class="empty-state" data-i18n="page.links.empty"><%= __('page.links.empty') %></p>
+  <%
+    } else {
+      var groups = {};
+      links.forEach(function(link) {
+        var group = link.group || __('page.links.defaultGroup');
+        if (!groups[group]) groups[group] = [];
+        groups[group].push(link);
+      });
+  %>
+  <div class="links-atlas">
+    <%
+      Object.keys(groups).forEach(function(groupName) {
+        var groupLinks = groups[groupName];
+    %>
+    <section class="links-group" aria-labelledby="links-<%= groupName %>-title" data-reveal>
+      <header class="links-group__rail">
+        <h2 id="links-<%= groupName %>-title">
+          <span><%= groupName %></span>
+          <span aria-hidden="true">/</span>
+          <small data-i18n="page.links.siteCount" data-i18n-args='[&quot;<%= groupLinks.length %>&quot;]'><%= __('page.links.siteCount', groupLinks.length) %></small>
+        </h2>
+      </header>
+
+      <ul class="links-board">
+        <% groupLinks.forEach(function(link) { %>
+        <li class="link-route-item">
+          <a
+            class="link-route"
+            href="<%= link.url %>"
+            target="_blank"
+            rel="noopener noreferrer external"
+            aria-label="<%= __('page.links.visitNewTab', link.name) %>"
+            data-i18n-mode="aria-label"
+            data-i18n="page.links.visitNewTab"
+            data-i18n-args='[&quot;<%= link.name %>&quot;]'
+          >
+            <span class="link-route__source">
+              <span class="link-route__mark" data-link-logo-shell>
+                <img
+                  class="link-route__logo"
+                  src="<%= link.avatar || url_for('/images/wind-island-hero-1.png') %>"
+                  alt="<%= link.name %>"
+                  loading="lazy"
+                  onerror="this.style.display='none'"
+                />
+              </span>
+            </span>
+            <span class="link-route__copy">
+              <span class="link-route__name"><%= link.name %></span>
+              <% if (link.description) { %>
+              <span class="link-route__desc"><%= link.description %></span>
+              <% } %>
+            </span>
+            <svg class="link-route__arrow" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+    </section>
+    <% }); %>
+  </div>
+  <% } %>
+</section>
